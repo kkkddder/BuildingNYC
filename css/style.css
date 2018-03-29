@@ -1,0 +1,32 @@
+h1 {
+	color: #1E1E1E;
+	font-family: 'Nunito', sans-serif;
+	text-align: center;
+	/*vertical-align: middle;*/
+	/*position: fixed;*/
+	/*top: 85px;*/
+	margin-top: 50px;
+	position: relative;
+}
+
+
+h2 {
+	color: #787878;
+	font-family: 'Nunito', sans-serif;
+	text-align: center;
+	/*vertical-align: middle;*/
+	/*top: 90px;*/
+	/*width: 500px;*/
+	margin-top: 30px;
+	position: relative;
+}
+
+
+img {
+	display: block;
+	margin-top: 60px;
+	border-radius: 15px;
+	width: 50%;
+	margin: auto;
+
+}
