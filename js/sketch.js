@@ -2,6 +2,7 @@
 var BBLList = [];
 var lineHeight = 2;
 var imgList = [];
+var yearSelected = "2009";
 
 // **** Setup Function ****** //
 function preload() {
@@ -21,6 +22,10 @@ function setup(){
   noLoop();
 }
 
+function yearPanel(year) {
+  text(year, 200, 280);
+}
+
 // if pressed, show the right windows
 function mousePressed() {
   if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
@@ -38,14 +43,43 @@ function mousePressed() {
     strokeWeight(1);
     rect(420, number*lineHeight + 80, 360, lineHeight);
     image(imgList[number], 850, mouseY + 20, 160, 160);
-  }  
+  } 
+  if (mouseY >= 50 && mouseY <= 70 && mouseX>=420 && mouseX<=780) {
+    redraw();
+    fill(textColor);
+    if (mouseX>=420 && mouseX<=460) {
+      yearSelected = "2009";
+    } else if(mouseX>=460 && mouseX<500) {
+      yearSelected = "2010";
+    } else if(mouseX>=500 && mouseX<540) {
+      yearSelected = "2011";
+    } else if(mouseX>=540 && mouseX<580) {
+      yearSelected = "2012";
+    } else if(mouseX>=580 && mouseX<620) {
+      yearSelected = "2013";
+    } else if(mouseX>=620 && mouseX<660) {
+      yearSelected = "2014";
+    } else if(mouseX>=660 && mouseX<700) {
+      yearSelected = "2015";
+    } else if(mouseX>=700 && mouseX<740) {
+      yearSelected = "2016";
+    } else if(mouseX>=740 && mouseX<780) {
+      yearSelected = "2017";
+    }
+    yearPanel(yearSelected);
+  } 
+
 }
 
 // once the cursor moved, close the windows
 function mouseMoved(){
-  if ((mouseX - pmouseX) != 0 || (mouseY - pmouseY) != 0) {
+  if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
+    if ((mouseX - pmouseX) != 0 || (mouseY - pmouseY) != 0) {
       redraw();
+      yearPanel(yearSelected);
+    }
   }
+
 }
 
 
@@ -155,5 +189,7 @@ function draw(){
     line(420 + i * 40, 60, 420 + i * 40, 3600);
   }
   line(780, 60, 780, 3600);
+
+
 
 }
