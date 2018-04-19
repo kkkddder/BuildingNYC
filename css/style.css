@@ -30,3 +30,13 @@ img {
 	margin: auto;
 
 }
+
+div.mainpage{
+	margin: auto;
+	display: flex;
+	position: relative;
+	vertical-align: middle;
+	justify-content: center;
+	margin-bottom: 10px;
+	align-items: center;
+}
