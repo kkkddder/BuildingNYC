@@ -10,22 +10,35 @@ function preload() {
     OwnershipTable = loadTable('data/ownership1.csv', 'csv', 'header');
     for (var k = 1; k < 3; k++) {
       imgList.push(loadImage('img/Ass3/'+k.toString()+'.png'));
+        imgList[k].resize(50, 50);
     }
     
     
 }
 
 function setup(){
-  var cvs = createCanvas(1200, 4000);
-  cvs.parent('mainpage');
-  textSize(12);
-  textFont('Roboto');
-  console.log('Setup complete...');
-  noLoop();
+    var cvs = createCanvas(1200, 4000);
+    cvs.parent('mainpage');
+    
+    var button = createButton('Learn More');
+    button.style('background-color', color(25, 23, 200, 50));
+    button.position(280, 620);
+    button.mousePressed(displayInfo);
+    
+    textSize(12);
+    textFont('Roboto');
+    console.log('Setup complete...');
+    noLoop();
 }
 
 function yearPanel(year) {
-  text(year, 200, 280);
+    text(year, 200, 280);
+}
+
+//Display Window for the information
+function displayInfo(){
+    rect(440, 100, 640, 480, 20, 20, 20, 20);
+    image(imgList[0], 220, 10);
 }
 
 // if pressed, show the right windows
