@@ -1,8 +1,9 @@
 // **** Global Variables ***** //
 var BBLList = [];
-var lineHeight = 2;
+var lineHeight = 4;
 var imgList = [];
 var yearSelected = "2009";
+
 
 // **** Setup Function ****** //
 function preload() {
@@ -15,7 +16,8 @@ function preload() {
 }
 
 function setup(){
-  createCanvas(1200, 4000);
+  var cvs = createCanvas(1200, 4000);
+  cvs.parent('mainpage');
   textSize(12);
   textFont('Roboto');
   console.log('Setup complete...');
@@ -162,7 +164,7 @@ function drawOwnership() {
 // **** Draw Function **** //
 function draw(){
   // background
-  colorMode(HSB, 100);
+  colorMode(HSB, 360,100, 100);
   var backgroundcolor = color(0,0,30);
   var backgroundcolorLight = color(0,0,40);
   background(backgroundcolor);
@@ -179,16 +181,19 @@ function draw(){
   // draw the lines and years in the middle panel
   for (var i = 0; i < 9; i++){
     year = (i+2009).toString();
+    // colorMode(HSB, 360);
     textColor = color(197, 42, 95);
     noStroke();
     fill(textColor);
     textAlign(CENTER, CENTER);
     text(year, 440 + i * 40, 60);
     stroke(textColor);
-    strokeWeight(1.5); 
+    strokeWeight(0.5); 
     line(420 + i * 40, 60, 420 + i * 40, 3600);
   }
   line(780, 60, 780, 3600);
+  // colorMode(HSB, 360);
+  line(570, 40, 570, 3600);
 
 
 
