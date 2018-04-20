@@ -7,7 +7,7 @@ var yearSelected = "2009";
 
 // **** Setup Function ****** //
 function preload() {
-    OwnershipTable = loadTable('data/ownership1.csv', 'csv', 'header');
+    OwnershipTable = loadTable('data/NewTotal.csv', 'csv', 'header');
     for (var k = 1; k < 3; k++) {
       imgList.push(loadImage('img/Ass3/'+k.toString()+'.png'));
         imgList[k].resize(50, 50);
@@ -103,69 +103,88 @@ function mouseMoved(){
 // draw lines based on ownership and vacancy
 function drawOwnership() {
   // define colors for diff onwerships and vacancy
-  var Color0 = color(25,39,76);
-  var Color1 = color(33,24,66);
+  var Color0 = color(223,28,35);
+  var Color1 = color(134,83,96);
   var Color2 = color(11,37,61);
-  var Color3 = color(148,21,49);
-  var Color4 = color(138,30,44);
-  var Color5 = color(223,28,35);
+  var Color3 = color(25,39,76);
+  var Color4 = color(33,24,66);
+  var Color5 = color(11,37,61);
+  // var Color6 = color(11,37,61);
 
-  var VColor0 = color(25,39,39);
-  var VColor1 = color(33,24,34);
+  var VColor0 = color(223,28,18);
+  var VColor1 = color(134,83,36);
   var VColor2 = color(11,37,31);
-  var VColor3 = color(148,21,25);
-  var VColor4 = color(138,30,22);
-  var VColor5 = color(223,28,18);
+  var VColor3 = color(25,39,39);
+  var VColor4 = color(33,24,34);
+  var VColor5 = color(11,37,31);
+  // var VColor6 = color(11,37,31);
+
+  var Color6 = color(0,0,30)
+  var ColorHighlightedOne = color(360,100,100);
 
   for (var i = 0; i < OwnershipTable.getRowCount(); i++) {
     var BBL = OwnershipTable.getString(i, 0).split('-')[0];
     BBLList.push(BBL);
     for (var j = 0; j < 9; j++) {
-      var Ownership = OwnershipTable.getString(i, (j*2+1).toString()).split('-')[0];
-      var Vacancy = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
+      var Vacancy = OwnershipTable.getString(i, (j*2+1).toString()).split('-')[0];
+      var Ownership = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
       if (Ownership == "0") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy > 1) {
           fill(Color0);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor0);
         }
 
       } else if (Ownership == "1") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy > 1) {
           fill(Color1);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor1);
         }
 
       } else if (Ownership == "2") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy >1) {
           fill(Color2);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor2);
         }
 
       } else if (Ownership == "3") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy >1) {
           fill(Color3);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor3);
         }
 
       } else if (Ownership == "4") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy >1) {
           fill(Color4);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor4);
         }
 
       } else if (Ownership == "5") {
-        if (Vacancy == "1") {
+        if (Vacancy == 1) {
+          fill(ColorHighlightedOne);
+        } else if (Vacancy >1) {
           fill(Color5);
-        } else if (Vacancy == "0") {
+        } else {
           fill(VColor5);
         }
 
-      } 
+      } else {
+        fill(Color6);
+      }
       noStroke();
       rect(420 + j * 40, 80 + i * lineHeight, 40, lineHeight);
     }
