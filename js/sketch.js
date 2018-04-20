@@ -3,17 +3,14 @@ var BBLList = [];
 var lineHeight = 4;
 var imgList = [];
 var yearSelected = "2009";
+var OwnershipList = [];
+var AssessTotList = [];
+var AddressList = [];
 
 
 // **** Setup Function ****** //
 function preload() {
     OwnershipTable = loadTable('data/NewTotal.csv', 'csv', 'header');
-    for (var k = 1; k < 3; k++) {
-      imgList.push(loadImage('img/Ass3/'+k.toString()+'.png'));
-        imgList[k].resize(50, 50);
-    }
-    
-    
 }
 
 function setup(){
@@ -32,7 +29,10 @@ function setup(){
 }
 
 function yearPanel(year) {
-    text(year, 200, 280);
+    fill(textColor);
+    textAlign(RIGHT, CENTER);
+    text(year, 300, 420);
+
 }
 
 //Display Window for the information
@@ -45,19 +45,31 @@ function displayInfo(){
 function mousePressed() {
   if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
     var number = parseInt((mouseY-80)/lineHeight);
-    print(number);
     var lot = BBLList[number];
-    print(lot);
-    print(mouseY);
+    textAlign(LEFT, CENTER);
     fill(textColor);
-    rect(820, mouseY, 360, 360);
+    text(OwnershipList[number],820,mouseY-160);
+    text("Assessed Total Value: "+AssessTotList[number],820,mouseY+195);
+    text("Address: "+AddressList[number],820,mouseY+175);
+    loadImage("img/Ass3/Lot_Images/"+lot.toString()+".png", function(img){
+      image(img, 820, mouseY-140);
+    });
     fill(0,0,40);
-    text(lot, 1000, mouseY + 180); 
+    noStroke();
+
+  beginShape();
+    vertex(780,number*lineHeight + 80)
+    vertex(780,number*lineHeight + 80 + lineHeight)
+    vertex(820,number*lineHeight + 80+ 158)
+    vertex(820,number*lineHeight +80 - 138)
+  endShape(CLOSE);
+
+  // text(lot, 1000, mouseY + 180); 
     noFill();
     stroke(textColor);
     strokeWeight(1);
     rect(420, number*lineHeight + 80, 360, lineHeight);
-    image(imgList[number], 850, mouseY + 20, 160, 160);
+    
   } 
   if (mouseY >= 50 && mouseY <= 70 && mouseX>=420 && mouseX<=780) {
     redraw();
@@ -98,8 +110,6 @@ function mouseMoved(){
 }
 
 
-
-
 // draw lines based on ownership and vacancy
 function drawOwnership() {
   // define colors for diff onwerships and vacancy
@@ -125,6 +135,12 @@ function drawOwnership() {
   for (var i = 0; i < OwnershipTable.getRowCount(); i++) {
     var BBL = OwnershipTable.getString(i, 0).split('-')[0];
     BBLList.push(BBL);
+    var owner = OwnershipTable.getString(i,22).split('-')[0];
+    OwnershipList.push(owner);
+    var assessTot = OwnershipTable.getString(i,23).split('-')[0];
+    AssessTotList.push(assessTot);
+    var address = OwnershipTable.getString(i,21).split('-')[0];
+    AddressList.push(address);
     for (var j = 0; j < 9; j++) {
       var Vacancy = OwnershipTable.getString(i, (j*2+1).toString()).split('-')[0];
       var Ownership = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
@@ -186,7 +202,7 @@ function drawOwnership() {
         fill(Color6);
       }
       noStroke();
-      rect(420 + j * 40, 80 + i * lineHeight, 40, lineHeight);
+      rect(420 + j * 40, 280 + i * lineHeight, 40, lineHeight);
     }
   }
 
@@ -204,9 +220,9 @@ function draw(){
   // draw left panels
   fill(backgroundcolorLight);
   noStroke();
-  rect(20, 50, 360, 60);
-  rect(20, 130, 360, 300);
-  rect(20, 450, 360, 500);
+  rect(20, 250, 360, 60);
+  rect(20, 330, 360, 300);
+  rect(20, 650, 360, 500);
 
   drawOwnership();
 
@@ -218,14 +234,14 @@ function draw(){
     noStroke();
     fill(textColor);
     textAlign(CENTER, CENTER);
-    text(year, 440 + i * 40, 60);
+    text(year, 440 + i * 40, 260);
     stroke(textColor);
     strokeWeight(0.5); 
-    line(420 + i * 40, 60, 420 + i * 40, 3600);
+    line(420 + i * 40, 260, 420 + i * 40, 3650);
   }
-  line(780, 60, 780, 3600);
+  line(780, 260, 780, 3650);
   // colorMode(HSB, 360);
-  line(570, 40, 570, 3600);
+  line(570, 240, 570, 3650);
 
 
 
