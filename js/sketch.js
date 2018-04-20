@@ -6,11 +6,22 @@ var yearSelected = "2009";
 var OwnershipList = [];
 var AssessTotList = [];
 var AddressList = [];
+var legendImg;
+var summaryImg;
+var yearList = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
+var stateList = [];
+var DEPList = [];
+var buildList = [];
+var vacantList = [];
 
 
 // **** Setup Function ****** //
 function preload() {
     OwnershipTable = loadTable('data/NewTotal.csv', 'csv', 'header');
+    SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
+    legendImg = loadImage("img/Ass3/legend.png");
+    summaryImg = loadImage("img/Ass3/ExecutiveSummary.jpg");
+
 }
 
 function setup(){
@@ -29,9 +40,28 @@ function setup(){
 }
 
 function yearPanel(year) {
+  for(var m = 0; m < SummaryTable.getRowCount(); m++) {
+    stateList.push(SummaryTable.getString(m, "State Owned").split('-')[0]);
+    DEPList.push(SummaryTable.getString(m, "DEP Owned").split('-')[0]);
+    buildList.push(SummaryTable.getString(m, "Build It Back").split('-')[0]);
+    vacantList.push(SummaryTable.getString(m, "Total Vacant Lots").split('-')[0]);
+
+  }
+    var index = year-2009;
     fill(textColor);
     textAlign(RIGHT, CENTER);
-    text(year, 300, 420);
+    text
+    text("Year", 250, 520);
+    text("New York State owned", 250, 550);
+    text("DEP owned", 250, 580);
+    text("Build It Back Program owned", 250, 610);
+    text("Total Vacant Lots", 250, 640);
+    textAlign(LEFT, CENTER);
+    text(year, 280, 520);
+    text(stateList[index], 280, 550);
+    text(DEPList[index], 280, 580);
+    text(buildList[index], 280, 610);
+    text(vacantList[index], 280, 640);
 
 }
 
@@ -75,23 +105,23 @@ function mousePressed() {
     redraw();
     fill(textColor);
     if (mouseX>=420 && mouseX<=460) {
-      yearSelected = "2009";
+      yearSelected = 2009;
     } else if(mouseX>=460 && mouseX<500) {
-      yearSelected = "2010";
+      yearSelected = 2010;
     } else if(mouseX>=500 && mouseX<540) {
-      yearSelected = "2011";
+      yearSelected = 2011;
     } else if(mouseX>=540 && mouseX<580) {
-      yearSelected = "2012";
+      yearSelected = 2012;
     } else if(mouseX>=580 && mouseX<620) {
-      yearSelected = "2013";
+      yearSelected = 2013;
     } else if(mouseX>=620 && mouseX<660) {
-      yearSelected = "2014";
+      yearSelected = 2014;
     } else if(mouseX>=660 && mouseX<700) {
-      yearSelected = "2015";
+      yearSelected = 2015;
     } else if(mouseX>=700 && mouseX<740) {
-      yearSelected = "2016";
+      yearSelected = 2016;
     } else if(mouseX>=740 && mouseX<780) {
-      yearSelected = "2017";
+      yearSelected = 2017;
     }
     yearPanel(yearSelected);
   } 
@@ -202,7 +232,7 @@ function drawOwnership() {
         fill(Color6);
       }
       noStroke();
-      rect(420 + j * 40, 280 + i * lineHeight, 40, lineHeight);
+      rect(420 + j * 40, 80 + i * lineHeight, 40, lineHeight);
     }
   }
 
@@ -216,13 +246,26 @@ function draw(){
   var backgroundcolor = color(0,0,30);
   var backgroundcolorLight = color(0,0,40);
   background(backgroundcolor);
+  textColor = color(197, 42, 95);
 
   // draw left panels
   fill(backgroundcolorLight);
   noStroke();
-  rect(20, 250, 360, 60);
-  rect(20, 330, 360, 300);
-  rect(20, 650, 360, 500);
+  // rect(20, 50, 360, 60);
+  // rect(20, 130, 360, 300);
+  rect(40, 400, 320, 60);
+  image(summaryImg,40, 50);
+  image(legendImg,40, 700);
+  fill(textColor);
+  textAlign(CENTER, CENTER);
+  text("ORDER BY", 100, 420);
+  text("LOCATION", 100, 440);
+  text("ORDER BY", 200, 420);
+  text("LOCATION", 200, 440);
+  text("ORDER BY", 300, 420);
+  text("LOCATION", 300, 440);
+  fill(backgroundcolorLight);
+  rect(40, 480, 320, 200);
 
   drawOwnership();
 
@@ -230,18 +273,18 @@ function draw(){
   for (var i = 0; i < 9; i++){
     year = (i+2009).toString();
     // colorMode(HSB, 360);
-    textColor = color(197, 42, 95);
+    
     noStroke();
     fill(textColor);
     textAlign(CENTER, CENTER);
-    text(year, 440 + i * 40, 260);
+    text(year, 440 + i * 40, 60);
     stroke(textColor);
     strokeWeight(0.5); 
-    line(420 + i * 40, 260, 420 + i * 40, 3650);
+    line(420 + i * 40, 60, 420 + i * 40, 3450);
   }
-  line(780, 260, 780, 3650);
+  line(780, 60, 780, 3450);
   // colorMode(HSB, 360);
-  line(570, 240, 570, 3650);
+  line(570, 40, 570, 3450);
 
 
 
