@@ -14,6 +14,8 @@ var DEPList = [];
 var buildList = [];
 var vacantList = [];
 
+var titles = ["Sandy batters the shore", "Moving from their long-time communities once seemed unimaginable to Oakwood Beach residents. But climate change has brought stronger storms and rising sea levels -- a 1.5-foot (0.5 m) rise since 1821 in Staten Island-- and repeated flooding has taken its toll. Sandy was the last straw for many residents, who watched as boats washed up on their streets or clambered up furniture as sofas floated by and their homes filled with rushing water. Some neighbors drowned in their homes and cars. As one resident who took the buyout put it: Everyone loves an ocean view, but it shouldn’t cost you your life. We just wanted to get out and get on with our lives.", "The damage to homes in Oakwood Beach was pervasive.", "Some 100 homes in Oakwood were destroyed and others were massively damaged. Most were small bungalows built in the 1960s as summer beach getaways never intended to be inhabited year-round. While residents in other vulnerable neighborhoods hoped to get buyouts, Oakwood and two other neighborhoods in Staten Island, Ocean Breeze and Graham Beach, were chosen by the state in part because they contained these vulnerable bungalows."];
+
 
 // **** Setup Function ****** //
 function preload() {
@@ -21,7 +23,8 @@ function preload() {
     SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
     legendImg = loadImage("img/Ass3/legend.png");
     summaryImg = loadImage("img/Ass3/ExecutiveSummary.jpg");
-
+    wavesImg = loadImage("img/Ass3/Waves.png");
+    
 }
 
 function setup(){
@@ -30,7 +33,7 @@ function setup(){
     
     var button = createButton('Learn More');
     button.style('background-color', color(25, 23, 200, 50));
-    button.position(280, 620);
+    button.position(230, 595);
     button.mousePressed(displayInfo);
     
     textSize(12);
@@ -67,8 +70,13 @@ function yearPanel(year) {
 
 //Display Window for the information
 function displayInfo(){
+    fill(textColor);
     rect(440, 100, 640, 480, 20, 20, 20, 20);
-    image(imgList[0], 220, 10);
+    img1 = image(wavesImg, 610, 110, 320, 240);
+    fill(255);
+    text(titles[0], 470, 370);
+    text(titles[1], 470, 195, 450, 520);
+    
 }
 
 // if pressed, show the right windows
