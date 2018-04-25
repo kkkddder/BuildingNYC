@@ -33,8 +33,13 @@ function preload() {
     // summaryImg = loadImage("img/Ass3/ExecutiveSummary.jpg");
     wavesImg = loadImage("img/Ass3/Waves.png");
     SI_map = loadImage("img/Ass3/SI.png")
-    damage = loadImage("img/Ass3/OakwoodDamage2.png")
+    damage = loadImage("img/Ass3/Damage.jpg")
     demo = loadImage("img/Ass3/Demo.png")
+    jacko = loadImage("img/Ass3/jacko.png")
+
+    SI_map1 = loadImage("img/Ass3/SIMap1.png")
+    SI_map2 = loadImage("img/Ass3/SIMap2.png")
+
     jacko = loadImage("img/Ass3/jacko.png")
 
     final_img = loadImage("img/Ass3/finalimg.jpg")
@@ -299,6 +304,7 @@ function drawOwnership() {
           textSize(16);
           text(OwnershipList[number],right_margin1+80,ImageTop-8);
           textSize(12);
+          text(BBLList[number], right_margin1+80,ImageTop+370)
           // textAlign(LEFT, CENTER)
         }else{
           fill(0,0,17)
@@ -323,6 +329,7 @@ function drawOwnership() {
           textSize(16);
           text(OwnershipList[number],right_margin1+80,mouseY-148);
           textSize(12);
+          text(BBLList[number], right_margin1+80,mouseY+230)
           textAlign(LEFT, TOP)
         }
 
@@ -563,8 +570,16 @@ function locate_map(){
   rect(40,topMap,320,box_map)
 
   tint(100,10)
-  image(SI_map, 70, topMap+20,260,260)
+  image(SI_map1, 70, topMap+20,260,260)
   tint(100,100)
+
+  tint(100,50)
+  image(SI_map2, 70, topMap+20,260,260)
+  tint(100,100)
+
+  textSize(12);
+  fill(197, 42, 95, 90);
+  text("Oakwood Beach", 320, topMap+155)
 
 }
 
