@@ -2,7 +2,7 @@
 var BBLList = [];
 var lineHeight = 3;
 var imgList = [];
-var yearSelected = "2009";
+var yearSelected = 2009;
 var OwnershipList = [];
 var AssessTotList = [];
 var AddressList = [];
@@ -25,9 +25,18 @@ var box_execSum = 200
 var box_legend = 290
 var box_map = 300
 
+var OwnershipTable;
+var verBar = "";
+
+var yearPanelFirst = 0;
+var drawOwnershipFirst = 0;
+
 // **** Setup Function ****** //
 function preload() {
-    OwnershipTable = loadTable('data/NewTotal.csv', 'csv', 'header');
+    LocationTable = loadTable('data/NewTotal.csv', 'csv', 'header');
+    LotValueTable = loadTable('data/NewTotalLotValue.csv', 'csv', 'header');
+    LotAreaTable = loadTable('data/NewTotalLotArea.csv', 'csv', 'header');
+    SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
     // SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
     // legendImg = loadImage("img/Ass3/legend.png");
     // summaryImg = loadImage("img/Ass3/ExecutiveSummary.jpg");
@@ -45,6 +54,7 @@ function preload() {
     final_img = loadImage("img/Ass3/finalimg.jpg")
 
     LotTable = loadTable('data/Lot_img.csv', 'csv', 'header');
+    OwnershipTable = LocationTable;
     }
 
 
@@ -59,9 +69,11 @@ function setup(){
   }
     console.log(typeof lot_bbl[3])
 
-    var cvs = createCanvas(1200, 3750);
+    var cvs = createCanvas(1200, 4000);
     cvs.parent('mainpage');
-    frameRate(300)
+
+
+    frameRate(300);
 
     // var button = createButton('Learn More');
     // button.style('background-color', color(25, 23, 200, 50));
@@ -71,33 +83,40 @@ function setup(){
     textSize(12);
     textFont('Roboto');
     console.log('Setup complete...');
+    // noLoop();
 }
 
-// function yearPanel(year) {
-//   for(var m = 0; m < SummaryTable.getRowCount(); m++) {
-//     stateList.push(SummaryTable.getString(m, "State Owned").split('-')[0]);
-//     DEPList.push(SummaryTable.getString(m, "DEP Owned").split('-')[0]);
-//     buildList.push(SummaryTable.getString(m, "Build It Back").split('-')[0]);
-//     vacantList.push(SummaryTable.getString(m, "Total Vacant Lots").split('-')[0]);
-//
-//   }
-//     var index = year-2009;
-//     fill(textColor);
-//     textAlign(RIGHT, CENTER);
-//     text
-//     text("Year", 250, 520);
-//     text("New York State owned", 250, 550);
-//     text("DEP owned", 250, 580);
-//     text("Build It Back Program owned", 250, 610);
-//     text("Total Vacant Lots", 250, 640);
-//     textAlign(LEFT, CENTER);
-//     text(year, 280, 520);
-//     text(stateList[index], 280, 550);
-//     text(DEPList[index], 280, 580);
-//     text(buildList[index], 280, 610);
-//     text(vacantList[index], 280, 640);
-//
-// }
+// draw year statistical panel
+function yearPanel(year) {
+  // noLoop();
+  stateList =[];
+  DEPList =[];
+  buildList =[];
+  vacantList =[];
+  for(var m = 0; m < SummaryTable.getRowCount(); m++) {
+    stateList.push(SummaryTable.getString(m, "State Owned").split('-')[0]);
+    DEPList.push(SummaryTable.getString(m, "DEP Owned").split('-')[0]);
+    buildList.push(SummaryTable.getString(m, "Build It Back").split('-')[0]);
+    vacantList.push(SummaryTable.getString(m, "Total Vacant Lots").split('-')[0]);
+
+  }
+    var index = year-2009;
+    fill(197, 42, 95);
+    // strokeWeight(2);
+    textAlign(RIGHT, CENTER);
+    text("Year", 250, 3070);
+    text("New York State owned", 250, 3100);
+    text("DEP owned", 250, 3130);
+    text("Build It Back Program owned", 250, 3160);
+    text("Total Vacant Lots", 250, 3190);
+    textAlign(LEFT, CENTER);
+    text(year, 280, 3070);
+    text(stateList[index], 280, 3100);
+    text(DEPList[index], 280, 3130);
+    text(buildList[index], 280, 3160);
+    text(vacantList[index], 280, 3190);
+    drawOwnershipFirst = 0;
+}
 
 //Display Window for the information
 // function displayInfo(){
@@ -113,72 +132,137 @@ function setup(){
 // if pressed, show the right windows
 
 function mousePressed() {
-  console.log("pressed")
-  if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
-    noLoop();
-      var number = parseInt((mouseY-80)/lineHeight);
-      var lot = BBLList[number];
-      textAlign(LEFT, CENTER);
-      fill(textColor);
-      text(OwnershipList[number],820,mouseY-180);
-      text("Assessed Total Value: "+AssessTotList[number],820,mouseY+195);
-      text("Address: "+AddressList[number],820,mouseY+175);
-  }
+  console.log("pressed");
+  // if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
+  //   noLoop();
+  //     var number = parseInt((mouseY-80)/lineHeight);
+  //     var lot = BBLList[number];
+  //     textAlign(LEFT, CENTER);
+  //     fill(textColor);
+  //     text(OwnershipList[number],820,mouseY-180);
+  //     text("Assessed Total Value: "+AssessTotList[number],820,mouseY+195);
+  //     text("Address: "+AddressList[number],820,mouseY+175);
+  // }
 
-  if (mouseY >= 50 && mouseY <= 70 && mouseX>=420 && mouseX<=780) {
+  // clickable buttons for years
+  if (mouseY >= 3350 && mouseY <= 3370 && mouseX>=435 && mouseX<=840) {
+    yearPanelFirst = 1;
     redraw();
     fill(textColor);
-    if (mouseX>=420 && mouseX<=460) {
+    if (mouseX>=435 && mouseX<=480) {
       yearSelected = 2009;
-    } else if(mouseX>=460 && mouseX<500) {
+    } else if(mouseX>=480 && mouseX<525) {
       yearSelected = 2010;
-    } else if(mouseX>=500 && mouseX<540) {
+    } else if(mouseX>=525 && mouseX<570) {
       yearSelected = 2011;
-    } else if(mouseX>=540 && mouseX<580) {
+    } else if(mouseX>=570 && mouseX<615) {
       yearSelected = 2012;
-    } else if(mouseX>=580 && mouseX<620) {
+    } else if(mouseX>=615 && mouseX<660) {
       yearSelected = 2013;
-    } else if(mouseX>=620 && mouseX<660) {
+    } else if(mouseX>=660 && mouseX<705) {
       yearSelected = 2014;
-    } else if(mouseX>=660 && mouseX<700) {
+    } else if(mouseX>=705 && mouseX<745) {
       yearSelected = 2015;
-    } else if(mouseX>=700 && mouseX<740) {
+    } else if(mouseX>=745 && mouseX<795) {
       yearSelected = 2016;
-    } else if(mouseX>=740 && mouseX<780) {
+    } else if(mouseX>=795 && mouseX<840) {
       yearSelected = 2017;
     }
+
     yearPanel(yearSelected);
+
   }
 
+  // clickable buttoms for programs
   if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1500 && mouseY<1600){
-  console.log('boom')
-  key = 1;
-}
-if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1800 && mouseY<2000){
-  console.log('boom')
-  key = 2;
-}
-if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>2300 && mouseY<2500){
-  console.log('boom')
-  key = 3;
-}
+    console.log('boom')
+    key = 1;
+  }
+  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1800 && mouseY<2000){
+    console.log('boom')
+    key = 2;
+  }
+  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>2300 && mouseY<2500){
+    console.log('boom')
+    key = 3;
+  }
+
+  // clickable buttoms for sortby
+  if (mouseX < 360 && mouseX >= 120 && mouseY >= 3250 && mouseY <= 3320) {
+    drawOwnershipFirst = 1;
+    redraw();
+    if (mouseX <= 360 && mouseX >= 280 && mouseY >= 3250 && mouseY <= 3320) {
+        OwnershipTable = LotValueTable;
+        // print("lotValue");
+        verBar = "Assessed Total Value";
+        // print(LotValueTable);
+
+      } else if (mouseX < 280 && mouseX >= 200 && mouseY >= 3250 && mouseY <= 3320) {
+        OwnershipTable = LotAreaTable;
+        verBar = "Total Lot Area";
+
+      } else if (mouseX < 200 && mouseX >= 120 && mouseY >= 3250 && mouseY <= 3320) {
+        OwnershipTable = LocationTable;
+        verBar = "";
+
+      }
+    drawOwnership(OwnershipTable);
+  }
 
 }
 
 // once the cursor moved, close the windows
 function mouseMoved(){
-  if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
-    if ((mouseX - pmouseX) >2  || (mouseY - pmouseY) >2 ) {
-      loop()
-      // yearPanel(yearSelected);
-    }
-  }
+  // if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
+  //   if ((mouseX - pmouseX) >2  || (mouseY - pmouseY) >2 ) {
+  //     loop();
+  //     // yearPanel(yearSelected);
+  //   }
+  // }
+
+
+  // change cursor shape into pointer 
+  if (mouseX < 360 && mouseX >= 120 && mouseY >= 3250 && mouseY <= 3320) {
+        
+        cursor_change();
+
+      } else if (mouseY >= 3350 && mouseY <= 3370 && mouseX>=435 && mouseX<=840) {
+        cursor_change();
+      } else {
+        cursor_clear();
+      }
 
 }
 
+// Changes the cursor to an hourglass
+function cursor_change() {
+  document.body.style.cursor = 'pointer';
+}
+
+// Returns the cursor to the default pointer
+function cursor_clear() {
+  document.body.style.cursor = 'default';
+}
+
+
+// draw the year numbers and call function to draw year statistics
+function drawYear() {
+  for (var i = 0; i < 9; i++){
+    fill(textColor);
+    textAlign(CENTER, CENTER);
+    text(yearList[i], 460 + i * 45, 3360);
+  }
+  if (yearPanelFirst == 0) {
+    yearPanel(yearSelected);
+  } 
+}
 
 // draw lines based on ownership and vacancy
 function drawOwnership() {
+
+  OwnershipList = [];
+  AssessTotList = [];
+  AddressList = [];
   // define colors for diff onwerships and vacancy
   var Color0 = color(223,28,35);
   // var Color0 = color(224,31,42);
@@ -201,6 +285,11 @@ function drawOwnership() {
   var Color6 = color(0,0,30)
   var ColorHighlightedOne = color(360,100,100);
 
+  // add the vertical bar title
+  textAlign(RIGHT, TOP);
+  fill(textColor);
+  text(verBar, 408, topMar, 27, 100);
+
   for (var i = 0; i < OwnershipTable.getRowCount(); i++) {
     var BBL = OwnershipTable.getString(i, 0).split('-')[0];
     BBLList.push(BBL);
@@ -210,6 +299,20 @@ function drawOwnership() {
     AssessTotList.push(assessTot);
     var address = OwnershipTable.getString(i,21).split('-')[0];
     AddressList.push(address);
+
+    // read the vertical numbers
+    var bar = OwnershipTable.getString(i,26).split('-')[0];
+    // verBar.push(bar);
+    var mark = OwnershipTable.getString(i,25).split('-')[0];
+    // verMark.push(mark);
+    
+    // draw vertical bars
+    textAlign(RIGHT,CENTER);
+    if (mark == 1) {
+      fill(textColor);
+      text(bar, 435, topMar + i * (lineHeight+1));
+    }
+
     for (var j = 0; j < 9; j++) {
       var Vacancy = OwnershipTable.getString(i, (j*2+1).toString()).split('-')[0];
       var Ownership = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
@@ -269,15 +372,15 @@ function drawOwnership() {
       } else {
         fill(Color6);
       }
-      if (mouseX>408 && mouseX<840 && i==int((mouseY-topMar)/(lineHeight+1))){
+      if (mouseX>435 && mouseX<840 && i==int((mouseY-topMar)/(lineHeight+1))){
         strokeWeight(1);;
         stroke(0,0,17);
-        rect(408 + j * 48, topMar + i * (lineHeight+1), 48, lineHeight);
+        rect(435 + j * 45, topMar + i * (lineHeight+1), 45, lineHeight);
         strokeWeight(1)
         // stroke(197, 42, 95,20);
         noFill();
         stroke(textColor);
-        rect(408, i*(lineHeight+1) + topMar, 432, lineHeight);
+        rect(435, i*(lineHeight+1) + topMar, 405, lineHeight);
         stroke(0,0,17);
 
         var right_margin1 = 840
@@ -349,11 +452,11 @@ function drawOwnership() {
     } else{
         strokeWeight(1);
         stroke(0,0,17);
-        rect(408 + j * 48, topMar + i * (lineHeight+1), 48, lineHeight);
+        rect(435 + j * 45, topMar + i * (lineHeight+1), 45, lineHeight);
         noStroke();
         textAlign(LEFT, TOP)
       }
-      if (key==1){
+    if (key==1){
       if (Ownership==3){
         strokeWeight(1);
         stroke(104,100,100);
@@ -380,6 +483,15 @@ function drawOwnership() {
 
     }
   }
+
+  // draw read sandy line
+  stroke(360,100,100);
+  // colorMode(HSB, 360);
+  line(582, 0, 582, 3750);
+  noStroke();
+
+
+  yearPanelFirst = 0;
 
 }
 
@@ -497,7 +609,12 @@ function narrative(){
   image (jacko, 60, endNarr+50+paragraph+inbox_space+15, 280, 200)
   tint(100,100)
 
-
+  
+  fill(0,0,30,10)
+  rect(40, endNarr+50+paragraph+inbox_space+15+240, 320, 200);
+  // print(endNarr+50+paragraph+inbox_space+15+240);
+  rect(40, endNarr+50+paragraph+inbox_space+15+455, 320, 100)
+  // print(endNarr+50+paragraph+inbox_space+15+240)
 }
 
 function legend_top(){
@@ -626,7 +743,13 @@ function final(){
   // image (final_img, 410, 3400, 430, 307)
 }
 
-function sortby (){
+// sortby panel text
+function sortby(){
+  textAlign(CENTER, CENTER);
+  text("Ordered by", 80, 3285, 20);
+  text("BBL Number", 160, 3285, 20);
+  text("Lot Area", 240, 3285, 20);
+  text("Lot Value", 310, 3285, 20);
 
 }
 
@@ -642,19 +765,22 @@ function draw(){
   fill(backgroundcolorLight);
   noStroke();
 
-  drawOwnership();
+  if (drawOwnershipFirst == 0) {
+    drawOwnership(OwnershipTable);
+  }
+  
+  ExecutiveSummary();
 
-  ExecutiveSummary()
-
-  narrative()
+  narrative();
   legend();
-  locate_map()
-  final()
+  locate_map();
+  final();
+  // draw year statistics
+  drawYear();
 
+  // write sortby panel text 
+  sortby();
 
-  stroke(360,100,100)
-  // colorMode(HSB, 360);
-  line(582, 0, 582, 3750);
-  noStroke();
-
+  
+  
 }
