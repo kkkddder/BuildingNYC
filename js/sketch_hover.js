@@ -61,7 +61,7 @@ function setup(){
 
     var cvs = createCanvas(1200, 3750);
     cvs.parent('mainpage');
-    frameRate(300)
+    frameRate(5)
 
     // var button = createButton('Learn More');
     // button.style('background-color', color(25, 23, 200, 50));
@@ -346,7 +346,8 @@ function drawOwnership() {
           textAlign(LEFT, TOP)
         }
 
-    } else{
+    }
+    else{
         strokeWeight(1);
         stroke(0,0,17);
         rect(408 + j * 48, topMar + i * (lineHeight+1), 48, lineHeight);
@@ -496,6 +497,8 @@ function narrative(){
   tint(100,55)
   image (jacko, 60, endNarr+50+paragraph+inbox_space+15, 280, 200)
   tint(100,100)
+
+
 
 
 }
