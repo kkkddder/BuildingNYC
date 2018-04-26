@@ -13,17 +13,17 @@ var stateList = [];
 var DEPList = [];
 var buildList = [];
 var vacantList = [];
-var lot_bbl = []
-var image_list = []
+var lot_bbl = [];
+var image_list = [];
 
-var topMar = 20
-var outbox_space = 10
-var inbox_space = 20
-var inbox_lr = 20
+var topMar = 20;
+var outbox_space = 10;
+var inbox_space = 20;
+var inbox_lr = 20;
 
-var box_execSum = 200
-var box_legend = 370
-var box_map = 300
+var box_execSum = 200;
+var box_legend = 370;
+var box_map = 300;
 
 // **** Setup Function ****** //
 function preload() {
@@ -48,8 +48,8 @@ function setup(){
     console.log(typeof lot_bbl[3])
 
     var cvs = createCanvas(1200, 60);
-    cvs.parent('mainpage');
-    frameRate(300)
+    cvs.parent("mainpage");
+    frameRate(300);
 
     // var button = createButton('Learn More');
     // button.style('background-color', color(25, 23, 200, 50));
@@ -60,6 +60,22 @@ function setup(){
     textFont('Roboto');
     console.log('Setup complete...');
 }
+
+var l = function(p) {
+    var x = 100;
+    var y = 100;
+    p.setup = function() {
+        p.createCanvas(1200, 60); 
+    }
+    
+    p.draw = function() {
+        p.background(0);
+        p.fill(255);
+        p.rect(x, y, 50, 50);
+    }
+}
+
+var myp51 = new p5(l, 'intro');
 
 // function yearPanel(year) {
 //   for(var m = 0; m < SummaryTable.getRowCount(); m++) {
@@ -565,9 +581,8 @@ function final(){
   // image (final_img, 410, 3400, 430, 307)
 }
 
-
-
 function draw(){
+    myp51;
 
   colorMode(HSB, 360, 100, 100, 100);
   var backgroundcolor = color(0,0,17);
@@ -598,3 +613,4 @@ function draw(){
   noStroke();
 
 }
+

@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script language="javascript" type="text/javascript" src="library/p5.js"></script>
     <script language="javascript" type="text/javascript" src="library/addons/p5.dom.js"></script>
-    <script language="javascript" type="text/javascript" src="js/sketch_hover.js"></script>
+    <script language="javascript" type="text/javascript" src="js/sketch_topbar.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -46,17 +47,60 @@
       </div>
     </ul>
 
-      <div id=main class="center">
+      <div id="main" class="center">
         <h2>ASSIGNMENT 3 - <i>FINAL SKETCH</i></h2>
 
         <!-- <img class = "large_img" src = "img/Ass2/Background4.png"></img>
         <p class = "caption">Some other changes/improvements post-Sandy that may help, but may not be enough</p> -->
       </div>
 
-      <div id="mainpage">
+      <div id="intro"></div>
+      <div id="legend">
+          <!--<a href="#">2009</a>
+          <a href="#">2010</a>
+          <a href="#">2011</a>
+          <hr>
+          <a href="#">2012</a>
+          <a href="#">2013</a>
+          <a href="#">2014</a>
+          <a href="#">2015</a>
+          <a href="#">2016</a>
+          <a href="#">2017</a>-->
+           <li>2009<li>
+           <li>2010<li>
+           <li>2011<li>
+           <li>2012<li>
+          <hr id="blah">
+           <li>2013<li>
+           <li>2014<li>
+           <li>2015<li>
+           <li>2016<li>
+           <li>2017<li>
       </div>
-
-
+      <div id="mainpage"></div> <br>
+      <canvas id="myCanvas" width="200" height="3000"
+                  style="border:1px solid #000000;">
+      </canvas>
+      
+      <script>
+        window.onscroll = function() {myFunction()};
+        
+        var lnd = document.getElementById("legend");
+        var sticky = lnd.offsetTop;
+        
+        var hrs = document.getElementById("blah");
+        var hsticky = hrs.offsetTop;
+        
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                lnd.classList.add("sticky");
+                hrs.classList.add("hrsticky");
+            } else {
+                lnd.classList.remove("sticky");
+                hrs.classList.remove("hrsticky");
+            }
+        }
+      </script>
 
   </body>
 
