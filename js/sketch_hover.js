@@ -22,7 +22,7 @@ var inbox_space = 20
 var inbox_lr = 20
 
 var box_execSum = 200
-var box_legend = 370
+var box_legend = 290
 var box_map = 300
 
 // **** Setup Function ****** //
@@ -112,56 +112,69 @@ function setup(){
 
 // if pressed, show the right windows
 
-// function mousePressed() {
-//   console.log("pressed")
-//   if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
-//     noLoop();
-//       var number = parseInt((mouseY-80)/lineHeight);
-//       var lot = BBLList[number];
-//       textAlign(LEFT, CENTER);
-//       fill(textColor);
-//       text(OwnershipList[number],820,mouseY-180);
-//       text("Assessed Total Value: "+AssessTotList[number],820,mouseY+195);
-//       text("Address: "+AddressList[number],820,mouseY+175);
-//   }
-// }
-//   if (mouseY >= 50 && mouseY <= 70 && mouseX>=420 && mouseX<=780) {
-//     redraw();
-//     fill(textColor);
-//     if (mouseX>=420 && mouseX<=460) {
-//       yearSelected = 2009;
-//     } else if(mouseX>=460 && mouseX<500) {
-//       yearSelected = 2010;
-//     } else if(mouseX>=500 && mouseX<540) {
-//       yearSelected = 2011;
-//     } else if(mouseX>=540 && mouseX<580) {
-//       yearSelected = 2012;
-//     } else if(mouseX>=580 && mouseX<620) {
-//       yearSelected = 2013;
-//     } else if(mouseX>=620 && mouseX<660) {
-//       yearSelected = 2014;
-//     } else if(mouseX>=660 && mouseX<700) {
-//       yearSelected = 2015;
-//     } else if(mouseX>=700 && mouseX<740) {
-//       yearSelected = 2016;
-//     } else if(mouseX>=740 && mouseX<780) {
-//       yearSelected = 2017;
-//     }
-//     yearPanel(yearSelected);
-//   }
-//
-// }
+function mousePressed() {
+  console.log("pressed")
+  if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
+    noLoop();
+      var number = parseInt((mouseY-80)/lineHeight);
+      var lot = BBLList[number];
+      textAlign(LEFT, CENTER);
+      fill(textColor);
+      text(OwnershipList[number],820,mouseY-180);
+      text("Assessed Total Value: "+AssessTotList[number],820,mouseY+195);
+      text("Address: "+AddressList[number],820,mouseY+175);
+  }
 
-// // once the cursor moved, close the windows
-// function mouseMoved(){
-//   if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
-//     if ((mouseX - pmouseX) >2  || (mouseY - pmouseY) >2 ) {
-//       loop()
-//       // yearPanel(yearSelected);
-//     }
-//   }
-//
-// }
+  if (mouseY >= 50 && mouseY <= 70 && mouseX>=420 && mouseX<=780) {
+    redraw();
+    fill(textColor);
+    if (mouseX>=420 && mouseX<=460) {
+      yearSelected = 2009;
+    } else if(mouseX>=460 && mouseX<500) {
+      yearSelected = 2010;
+    } else if(mouseX>=500 && mouseX<540) {
+      yearSelected = 2011;
+    } else if(mouseX>=540 && mouseX<580) {
+      yearSelected = 2012;
+    } else if(mouseX>=580 && mouseX<620) {
+      yearSelected = 2013;
+    } else if(mouseX>=620 && mouseX<660) {
+      yearSelected = 2014;
+    } else if(mouseX>=660 && mouseX<700) {
+      yearSelected = 2015;
+    } else if(mouseX>=700 && mouseX<740) {
+      yearSelected = 2016;
+    } else if(mouseX>=740 && mouseX<780) {
+      yearSelected = 2017;
+    }
+    yearPanel(yearSelected);
+  }
+
+  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1500 && mouseY<1600){
+  console.log('boom')
+  key = 1;
+}
+if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1800 && mouseY<2000){
+  console.log('boom')
+  key = 2;
+}
+if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>2300 && mouseY<2500){
+  console.log('boom')
+  key = 3;
+}
+
+}
+
+// once the cursor moved, close the windows
+function mouseMoved(){
+  if (mouseY >= 80 && mouseY <= 3646 && mouseX>=420 && mouseX<=780) {
+    if ((mouseX - pmouseX) >2  || (mouseY - pmouseY) >2 ) {
+      loop()
+      // yearPanel(yearSelected);
+    }
+  }
+
+}
 
 
 // draw lines based on ownership and vacancy
@@ -340,6 +353,30 @@ function drawOwnership() {
         noStroke();
         textAlign(LEFT, TOP)
       }
+      if (key==1){
+      if (Ownership==3){
+        strokeWeight(1);
+        stroke(104,100,100);
+        line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
+        stroke(0,0,17);
+      }
+    }
+    if (key==2){
+      if (Ownership==1){
+        strokeWeight(1);
+        stroke(104,100,100);
+        line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
+        stroke(0,0,17);
+      }
+    }
+    if (key==3){
+      if (Ownership==2){
+        strokeWeight(1);
+        stroke(104,100,100);
+        line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
+        stroke(0,0,17);
+      }
+    }
 
     }
   }
@@ -347,7 +384,7 @@ function drawOwnership() {
 }
 
 function ExecutiveSummary(){
-    var intro1 = "Hurricane Sandy struck the eastern coast of America in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggering a record storm surge in New York harbor that covered nearly a fifth of the city\'s land and flooded road and tunnels. As waves battered the shore, electricity went out for millions of people. More than one hundred people died, mostly drowned in homes and cars. In New York City alone, 150,000 homes were damaged, with total economic damage of around $75 billion."
+    var exec = "Hurricane Sandy struck the East Coast in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggered a record storm surge in New York harbor that covered nearly a fifth of the city\'s land and flooded road and tunnels. More than one hundred people died, most drowned in homes and cars. Millions were left in darkness. In New York City alone, 150,000 homes were damaged. Waterfront homes Staten Island were transformed from beachside oases to watery tombs."
 
     // Executive summary
    fill(0,0,30,10)
@@ -355,7 +392,7 @@ function ExecutiveSummary(){
    fill(197, 42, 95)
    textAlign(TOP,LEFT)
    textStyle(ITALIC)
-   text(intro1, 40+inbox_lr, topMar+inbox_space, 320-(inbox_lr*2), 800)
+   text(exec, 40+inbox_lr, topMar+inbox_space, 320-(inbox_lr*2), 800)
    fill(197, 42, 95, 90)
    textStyle(NORMAL)
    // text(intro2, 50, 275, 300, 200)
@@ -363,13 +400,19 @@ function ExecutiveSummary(){
 
 function narrative(){
 
-  var intro1 = "Our site focuses on the particularly hard-hit Staten Island eastern coast neighborhoods of Oakwood Beach, Graham Beach and Ocean Breeze. Because this area is low-lying and in the flood plain, it is particularly vulnerable; in the Sandy surge, 43 people there lost their lives. Some of the survivors had to climb furniture as their homes filled with water, waiting for rescue. People with damaged homes in Staten Island have sought help from two main recovery programs: People with damaged homes in Staten Island have sought help from two main recovery programs: People with damaged homes in Staten Island have sought help from two main recovery programs:"
+  var intro1 = "Our site focuses on the particularly hard-hit Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. Low lying, Oakwood has been notoriously plagued with extensive street and home flooding during heavy rains, in addition to surge flooding. It was built on wetlands, swampy land that normally collects water and mitigates floods.  Many of the homes were small, crowded-together bungalows built as summer beach getaways. The developers did not create appropriate drainage infrastructure. And in the 1950s, the bungalows began to be used as year-round residences, which further increased vulnerability to flooding."
 
-  var bluebelt = ""
+  var intro2 ="Most of the residents -- many of them police and fire fighters-- have multi-generational roots in the area. They complained and lobbied for levees to be built, but despite city promises and plans, those levees never came to fruition. There is a reason that Staten Island is sometimes called the \“forgotten borough.\” Climate change has only made matters worse, bringing stronger storms and rising sea levels -- a 1.5-foot (0.5 m) rise since 1821 in Staten Island. By 1990, the situation had reached crisis proportions. Staten Island was in an uproar over flooding in newly developed neighborhoods, but the city government considered the cost of implementing traditional storm sewers too high."
 
-  var housingTrust = "New York governor Andrew Cuomo set up a buyout program in Staten Island that pursued a vision of managed retreat through homeowner buyouts, with the goal of returning low-lying flood prone land to wetlands, where it could serve its natural buffer function to protect the coast. The Governor’s Office of Storm Recovery (GOSR) started offering buyouts in early 2014, with a 90% participation rate in Oakwood."
+  var bluebelt = "In 1990, a new NY environmental protection commissioner spearheaded an innovative approach called the SI Blue Belt program. The city bought out homeowners and then demolished their homes in order to return the land to wetlands. The idea was to expand existing wetlands to create more catchment areas where water could go instead of flooding roads and homes. This approach was successful and cost efficient, as well as popular among residents, increasing the property values of homes that remained. The focus was ameliorating flooding from heavy rains, though not necessarily from surges. "
 
-  var builditback = "Build it Back, run by the city, is a $648m federally funded effort that uses contractors to restore damaged homes, elevate ones in flood prone areas, or else buy property throughout NYC. Some 24,000 New Yorkers have registered for the program, but one in five eligible people still haven’t had their homes repaired."
+  var housingTrust = "This second buy-out program was the direct result of Sandy, and focused on the threat from future surges. Set up by NY governor Andrew Cuomo, this $200 million program offered homeowners in Oakwood Beach pre-Sandy market value of their homes. After a buy-out, the homes are demolished and the land seeded, thus returning the land to its natural wetlands state. Sandy was the last straw for many residents. As one resident who took the buyout put it - Everyone loves an ocean view, but it shouldn\’t cost you your life. Residents banded together to lead a community effort to get buyouts and thus Oakwood was the first neighborhood selected for buyouts, beginning in 2013."
+
+
+
+  var builditback = "Run by the city, this $648 million federally funded effort uses contractors to restore damaged homes, elevate ones in flood prone areas, or else buy property throughout NYC. In Oakwood Beach the state buy-out program rather than Build it Back dominated. The latter program was plagued with bureaucratic and other problems. Some 24,000 New Yorkers have registered for it, but one in five eligible people still haven\’t had their homes repaired."
+
+  var conclusion = "Over 90% of Oakwood Beach residents took the state-sponsored buyouts. Where once stood homes, now tall reeds sprout from empty plots of land, deer roam and opossums scurry about freely. And turkeys have flourished so much since the program began that the government ordered a cull. But some hold outs remain among the Oakwood residents remain, and in the surrounding neighborhoods roughly 50% refused the buyouts. These owners placed their hopes instead on competing rebuilding programs. The result is a so-called \“jack a lantern\” or pockmarked effect, where vacant lots and isolated homes randomly dotting the coastal landscape, creating planning challenges for the city. The predominant theme in Oakwood, however, is transformation. No neighborhood has changed as dramatically as this long-suffering, waterlogged town. And the deer, turkey and opossum couldn\’t be happier."
 
   var topNarr = topMar+box_execSum+box_legend+box_map+(outbox_space*3)
 
@@ -377,7 +420,7 @@ function narrative(){
 
   // big text box
   fill(0,0,30,10)
-  rect(40,topNarr,320,1720)
+  rect(40,topNarr,320,1640)
 
   textAlign(TOP,LEFT)
   fill(197, 42, 95)
@@ -398,7 +441,7 @@ function narrative(){
   // Intro2
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, topNarr+50+200+paragraph+inbox_space, 320-(inbox_space*2), 800)
+  text(intro2, 40+inbox_lr, topNarr+50+200+paragraph+inbox_space, 320-(inbox_space*2), 800)
   fill(197, 42, 95, 90)
 
   var midNarr = (topNarr+50+200+paragraph*2+inbox_space*2) - 10
@@ -412,13 +455,13 @@ function narrative(){
   // Paragraph - SI Blue Belt
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, midNarr+30, 320-(inbox_space*2), 250)
+  text(bluebelt, 40+inbox_lr, midNarr+30, 320-(inbox_space*2), 250)
   fill(197, 42, 95, 90)
 
   // Paragraph - GOSR
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, midNarr+40+30+paragraph, 320-(inbox_space*2), 250)
+  text(housingTrust, 40+inbox_lr, midNarr+40+30+paragraph, 320-(inbox_space*2), 250)
   fill(197, 42, 95, 90)
 
   // Demolition Image
@@ -429,14 +472,14 @@ function narrative(){
   // Paragraph - Project Build it back
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, midNarr+40+60+5+200+inbox_space+paragraph*2, 320-(inbox_space*2), 250)
+  text(builditback, 40+inbox_lr, midNarr+40+60+5+200+inbox_space+paragraph*2, 320-(inbox_space*2), 250)
   fill(197, 42, 95, 90)
 
-  var endNarr = topNarr+1720+outbox_space
+  var endNarr = topNarr+1640+outbox_space
 
   // Take-away box
   fill(0,0,30,10)
-  rect(40,endNarr,320,740)
+  rect(40,endNarr,320,530)
 
   // Jack-o-lantern houses
   textSize(14)
@@ -446,18 +489,14 @@ function narrative(){
 
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, endNarr+50, 320-(inbox_space*2), 250)
+  text(conclusion, 40+inbox_lr, endNarr+50, 320-(inbox_space*2), 250)
   fill(197, 42, 95, 90)
 
   // jack-o-lantern image
   tint(100,55)
-  image (jacko, 60, endNarr+50+paragraph+inbox_space, 280, 200)
+  image (jacko, 60, endNarr+50+paragraph+inbox_space+15, 280, 200)
   tint(100,100)
 
-  fill(197, 42, 95)
-  textAlign(TOP,LEFT)
-  text(intro1, 40+inbox_lr, endNarr+50+200+paragraph+inbox_space*2, 320-(inbox_space*2), 250)
-  fill(197, 42, 95, 90)
 
 }
 
@@ -587,7 +626,9 @@ function final(){
   // image (final_img, 410, 3400, 430, 307)
 }
 
+function sortby (){
 
+}
 
 function draw(){
   // background
@@ -597,24 +638,9 @@ function draw(){
   background(backgroundcolor);
   textColor = color(197, 42, 95);
 
-  // draw left panels
+
   fill(backgroundcolorLight);
   noStroke();
-  // rect(20, 50, 360, 60);
-  // rect(20, 130, 360, 300);
-  // image(summaryImg,40, 50);
-  // image(legendImg,40, 700);
-
-  // fill(textColor);
-  // textAlign(CENTER, CENTER);
-  // text("ORDER BY", 100, 420);
-  // text("LOCATION", 100, 440);
-  // text("ORDER BY", 200, 420);
-  // text("LOCATION", 200, 440);
-  // text("ORDER BY", 300, 420);
-  // text("LOCATION", 300, 440);
-  // fill(backgroundcolorLight);
-  // rect(40, 480, 320, 200);
 
   drawOwnership();
 
@@ -625,21 +651,6 @@ function draw(){
   locate_map()
   final()
 
-  // // draw the lines and years in the middle panel
-  // for (var i = 0; i < 9; i++){
-  //   year = (i+2009).toString();
-  //   // colorMode(HSB, 360);
-  //
-  //   noStroke();
-  //   fill(textColor);
-  //   textAlign(CENTER, CENTER);
-  //   text(year, 440 + i * 40, 60);
-  //   textAlign(TOP,RIGHT)
-  //
-  //   // stroke(textColor);
-  //   // strokeWeight(0.5);
-  //   // line(420 + i * 40, 60, 420 + i * 40, 3450);
-  // }
 
   stroke(360,100,100)
   // colorMode(HSB, 360);
