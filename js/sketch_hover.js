@@ -6,6 +6,7 @@ var yearSelected = 2009;
 var OwnershipList = [];
 var AssessTotList = [];
 var AddressList = [];
+var jackoList = [];
 var legendImg;
 var summaryImg;
 var yearList = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
@@ -33,9 +34,9 @@ var drawOwnershipFirst = 0;
 
 // **** Setup Function ****** //
 function preload() {
-    LocationTable = loadTable('data/NewTotal.csv', 'csv', 'header');
-    LotValueTable = loadTable('data/NewTotalLotValue.csv', 'csv', 'header');
-    LotAreaTable = loadTable('data/NewTotalLotArea.csv', 'csv', 'header');
+    LocationTable = loadTable('data/NewTotal2.csv', 'csv', 'header');
+    LotValueTable = loadTable('data/NewTotalLotValue2.csv', 'csv', 'header');
+    LotAreaTable = loadTable('data/NewTotalLotArea2.csv', 'csv', 'header');
     SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
     // SummaryTable = loadTable('data/SummaryStats.csv', 'csv', 'header');
     // legendImg = loadImage("img/Ass3/legend.png");
@@ -73,7 +74,7 @@ function setup(){
     cvs.parent('mainpage');
 
 
-    frameRate(300);
+    frameRate(30);
 
     // var button = createButton('Learn More');
     // button.style('background-color', color(25, 23, 200, 50));
@@ -110,11 +111,13 @@ function yearPanel(year) {
     text("Build It Back Program owned", 250, 3160);
     text("Total Vacant Lots", 250, 3190);
     textAlign(LEFT, CENTER);
+    textSize(14)
     text(year, 280, 3070);
     text(stateList[index], 280, 3100);
     text(DEPList[index], 280, 3130);
     text(buildList[index], 280, 3160);
     text(vacantList[index], 280, 3190);
+    textSize(12)
     drawOwnershipFirst = 0;
 }
 
@@ -173,18 +176,27 @@ function mousePressed() {
 
   }
 
+  // rect(60,1555, 150, 25)
+  // rect(60,1815, 225, 25)
+  // rect(60,2290, 150, 25)
+  // rect(60,2505, 160, 25)
+  // noStroke()
+
   // clickable buttoms for programs
-  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1500 && mouseY<1600){
+  if(mouseX>(40+inbox_lr)&&mouseX<(210) && mouseY>1555 && mouseY<1580){
     console.log('boom')
     key = 1;
-  }
-  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>1800 && mouseY<2000){
+  }else if (mouseX>(40+inbox_lr)&&mouseX<(285) && mouseY>1815 && mouseY<1840){
     console.log('boom')
     key = 2;
-  }
-  if(mouseX>(40+inbox_lr)&&mouseX<(150) && mouseY>2300 && mouseY<2500){
+  }else if(mouseX>(40+inbox_lr)&&mouseX<(210) && mouseY>2290 && mouseY<2305){
     console.log('boom')
     key = 3;
+  }else if(mouseX>(40+inbox_lr)&&mouseX<(220) && mouseY>2505&& mouseY<2530){
+    console.log('boom')
+    key = 4;
+  } else {
+    key = 0;
   }
 
   // clickable buttoms for sortby
@@ -221,12 +233,19 @@ function mouseMoved(){
   // }
 
 
-  // change cursor shape into pointer 
+  // change cursor shape into pointer
   if (mouseX < 360 && mouseX >= 120 && mouseY >= 3250 && mouseY <= 3320) {
-        
         cursor_change();
-
       } else if (mouseY >= 3350 && mouseY <= 3370 && mouseX>=435 && mouseX<=840) {
+        cursor_change();
+      }
+      else if (mouseX>(40+inbox_lr)&&mouseX<(210) && mouseY>1555 && mouseY<1580) {
+        cursor_change();
+      } else if (mouseX>(40+inbox_lr)&&mouseX<(285) && mouseY>1815 && mouseY<1840) {
+        cursor_change();
+      } else if (mouseX>(40+inbox_lr)&&mouseX<(210) && mouseY>2290 && mouseY<2305) {
+        cursor_change();
+      } else if (mouseX>(40+inbox_lr)&&mouseX<(220) && mouseY>2505 && mouseY<2530) {
         cursor_change();
       } else {
         cursor_clear();
@@ -254,7 +273,7 @@ function drawYear() {
   }
   if (yearPanelFirst == 0) {
     yearPanel(yearSelected);
-  } 
+  }
 }
 
 // draw lines based on ownership and vacancy
@@ -299,13 +318,15 @@ function drawOwnership() {
     AssessTotList.push(assessTot);
     var address = OwnershipTable.getString(i,21).split('-')[0];
     AddressList.push(address);
+    var jackolot = OwnershipTable.getString(i,24).split('-')[0];
+    jackoList.push(jackolot);
 
     // read the vertical numbers
     var bar = OwnershipTable.getString(i,26).split('-')[0];
     // verBar.push(bar);
     var mark = OwnershipTable.getString(i,25).split('-')[0];
     // verMark.push(mark);
-    
+
     // draw vertical bars
     textAlign(RIGHT,CENTER);
     if (mark == 1) {
@@ -316,6 +337,7 @@ function drawOwnership() {
     for (var j = 0; j < 9; j++) {
       var Vacancy = OwnershipTable.getString(i, (j*2+1).toString()).split('-')[0];
       var Ownership = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
+      // var jackolantern = OwnershipTable.getString(i, (j*2+2).toString()).split('-')[0];
       if (Ownership == "0") {
         if (Vacancy == 1) {
           fill(VColor0);
@@ -420,7 +442,7 @@ function drawOwnership() {
           textSize(16);
           text(OwnershipList[number],right_margin1+80,ImageTop-8);
           textSize(12);
-          text(BBLList[number], right_margin1+80,ImageTop+370)
+          // text(BBLList[number], right_margin1+80,ImageTop+370)
           // textAlign(LEFT, CENTER)
         }else{
           fill(0,0,17)
@@ -445,7 +467,7 @@ function drawOwnership() {
           textSize(16);
           text(OwnershipList[number],right_margin1+80,mouseY-148);
           textSize(12);
-          text(BBLList[number], right_margin1+80,mouseY+230)
+          // text(BBLList[number], right_margin1+80,mouseY+230)
           textAlign(LEFT, TOP)
         }
 
@@ -456,24 +478,136 @@ function drawOwnership() {
         noStroke();
         textAlign(LEFT, TOP)
       }
+
+
+
+    if (key==0){
+
+        // these are here to fix text crispiness issue
+        fill(0,0,17)
+        rect(60,1555, 150, 25)
+        rect(60,1815, 225, 25)
+        rect(60,2290, 150, 25)
+        rect(60,2505, 160, 25)
+
+        fill(104,100,100)
+        noStroke()
+        textSize(14)
+        fill(textColor)
+        text("Staten Island Blue Belt", 40+inbox_lr, 1560)
+        text("Governor's Office of Storm Recovery", 40+inbox_lr, 1820)
+        text("Project Build it Back", 40+inbox_lr, 2295)
+        text("Oakwood Beach Today", 40+inbox_lr, 2510)
+        textSize(12)
+        noFill()
+
+
+        stroke(0,0,17);
+    }
+
     if (key==1){
       if (Ownership==3){
+
+        // these are here to fix text crispiness issue
+        fill(0,0,17)
+        rect(60,1555, 150, 25)
+        rect(60,1815, 225, 25)
+        rect(60,2290, 150, 25)
+        rect(60,2505, 160, 25)
+
+        fill(25,39,76)
+        noStroke()
+        textSize(14)
+        text("Staten Island Blue Belt", 40+inbox_lr, 1560)
+        fill(textColor)
+        text("Governor's Office of Storm Recovery", 40+inbox_lr, 1820)
+        text("Project Build it Back", 40+inbox_lr, 2295)
+        text("Oakwood Beach Today", 40+inbox_lr, 2510)
+        textSize(12)
+        noFill()
+
         strokeWeight(1);
-        stroke(104,100,100);
+        stroke(22,69,96);
         line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
         stroke(0,0,17);
       }
     }
-    if (key==2){
+    else if (key==2){
       if (Ownership==1){
+
+        // these are here to fix text crispiness issue
+        fill(0,0,17)
+        rect(60,1555, 150, 25)
+        rect(60,1815, 225, 25)
+        rect(60,2290, 150, 25)
+        rect(60,2505, 160, 25)
+
+        fill(138,30,44)
+        noStroke()
+        textSize(14)
+        text("Governor's Office of Storm Recovery", 40+inbox_lr, 1820)
+        fill(textColor)
+        text("Staten Island Blue Belt", 40+inbox_lr, 1560)
+        text("Project Build it Back", 40+inbox_lr, 2295)
+        text("Oakwood Beach Today", 40+inbox_lr, 2510)
+        textSize(12)
+        noFill()
+
         strokeWeight(1);
-        stroke(104,100,100);
+        stroke(143,61,53);
         line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
         stroke(0,0,17);
       }
     }
-    if (key==3){
+    else if (key==3){
       if (Ownership==2){
+
+        // these are here to fix text crispiness issue
+        fill(0,0,17)
+        rect(60,1555, 150, 25)
+        rect(60,1815, 225, 25)
+        rect(60,2290, 150, 25)
+        rect(60,2505, 160, 25)
+
+        fill(11,37,61)
+        noStroke()
+        textSize(14)
+        text("Project Build it Back", 40+inbox_lr, 2295)
+        fill(textColor)
+        text("Staten Island Blue Belt", 40+inbox_lr, 1560)
+        text("Governor's Office of Storm Recovery", 40+inbox_lr, 1820)
+        text("Oakwood Beach Today", 40+inbox_lr, 2510)
+        textSize(12)
+        noFill()
+
+        strokeWeight(1);
+        stroke(8,68,76);
+        line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
+        stroke(0,0,17);
+      }
+    }
+    else if (key==4){
+      var jacknumber = parseInt(jackoList[i])
+      if (jacknumber>0){
+
+        // these are here to fix text crispiness issue
+        fill(0,0,17)
+        rect(60,1555, 150, 25)
+        rect(60,1815, 225, 25)
+        rect(60,2290, 150, 25)
+        rect(60,2505, 160, 25)
+
+        fill(104,100,100)
+        noStroke()
+        textSize(14)
+        text("Oakwood Beach Today", 40+inbox_lr, 2510)
+        fill(textColor)
+        text("Staten Island Blue Belt", 40+inbox_lr, 1560)
+        text("Governor's Office of Storm Recovery", 40+inbox_lr, 1820)
+        text("Project Build it Back", 40+inbox_lr, 2295)
+        textSize(12)
+        noFill()
+
         strokeWeight(1);
         stroke(104,100,100);
         line(845, i*(lineHeight+1) + topMar + (lineHeight/2), 850, i*(lineHeight+1) + topMar + (lineHeight/2));
@@ -484,10 +618,15 @@ function drawOwnership() {
     }
   }
 
+  // rect(60,1555, 150, 25)
+  // rect(60,1815, 225, 25)
+  // rect(60,2290, 150, 25)
+  // rect(60,2505, 160, 25)
+
   // draw read sandy line
   stroke(360,100,100);
   // colorMode(HSB, 360);
-  line(582, 0, 582, 3750);
+  line(600, 0, 600, 3750);
   noStroke();
 
 
@@ -558,11 +697,11 @@ function narrative(){
 
   var midNarr = (topNarr+50+200+paragraph*2+inbox_space*2) - 10
 
-  textSize(14)
-  text("Staten Island Blue Belt", 40+inbox_lr, midNarr)
-  text("Governor's Office of Storm Recovery", 40+inbox_lr, midNarr+40+paragraph)
-  text("Project Build it Back", 40+inbox_lr, midNarr+40+30+5+200+inbox_space+paragraph*2)
-  textSize(12)
+  // textSize(14)
+  // text("Staten Island Blue Belt", 40+inbox_lr, midNarr)
+  // text("Governor's Office of Storm Recovery", 40+inbox_lr, midNarr+40+paragraph)
+  // text("Project Build it Back", 40+inbox_lr, midNarr+40+30+5+200+inbox_space+paragraph*2)
+  // textSize(12)
 
   // Paragraph - SI Blue Belt
   fill(197, 42, 95)
@@ -594,10 +733,10 @@ function narrative(){
   rect(40,endNarr,320,530)
 
   // Jack-o-lantern houses
-  textSize(14)
-  fill(197, 42, 95)
-  text("Oakwood Beach Today", 40+inbox_lr, endNarr+inbox_space)
-  textSize(12)
+  // textSize(14)
+  // fill(197, 42, 95)
+  // text("Oakwood Beach Today", 40+inbox_lr, endNarr+inbox_space)
+  // textSize(12)
 
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
@@ -609,7 +748,7 @@ function narrative(){
   image (jacko, 60, endNarr+50+paragraph+inbox_space+15, 280, 200)
   tint(100,100)
 
-  
+
   fill(0,0,30,10)
   rect(40, endNarr+50+paragraph+inbox_space+15+240, 320, 200);
   // print(endNarr+50+paragraph+inbox_space+15+240);
@@ -651,71 +790,101 @@ function legend(){
   var topLegend = topMar+box_execSum+outbox_space
   var textr = 300
 
-  fill(0,0,30,10)
-  rect(40,topLegend,320,box_legend)
+  var boxp = 310
+  var bs = 18
+
+  textSize(10);
+  fill(197, 42, 95, 90);
+
+  textAlign(LEFT, TOP)
+  text("Vacant", boxp, topLegend+10)
+  text("Occupied", boxp-50, topLegend+10)
+
+
+  for (g=0; g<5; g++){
+    if (g==0){
+      fill(223,28,35)
+    } else if (g==1){
+      fill(138,30,44)
+    } else if (g==2){
+      fill(11,37,61)
+    } else if (g==3){
+      fill(25,39,76)
+    } else if (g==4){
+      fill(33,24,66)
+    }
+
+    rect(boxp-37,topLegend+38+(50*g),bs,bs)
+
+    if (g==0){
+      fill(223,28,35,10)
+    } else if (g==1){
+      fill(138,30,44,10)
+    } else if (g==2){
+      fill(11,37,61,10)
+    } else if (g==3){
+      fill(25,39,76,10)
+    } else if (g==4){
+      fill(33,24,66,10)
+    }
+
+    rect(boxp+5,topLegend+38+(50*g),bs,bs)
+
+  }
 
   textSize(12);
   fill(197, 42, 95, 90);
-
   textAlign(RIGHT, TOP)
-  text("Private Ownership", textr, topLegend+20)
+  text("Private Ownership", boxp-39-18, topLegend+38+(50*0)+3)
+  text("State Ownership", boxp-39-18, topLegend+38+(50*1)+3-9)
+  text("Municipal Ownership", boxp-39-18, topLegend+38+(50*2)+3-9)
+  text("Municipal Ownership - SI Blue Belt", boxp-39-18, topLegend+38+(50*3)+3-9)
+  text("Municipal Ownership", boxp-39-18, topLegend+38+(50*4)+3-9)
 
-  text("State Ownership - Housing Trust Fund Co.", textr, topLegend+90)
-
-  text("Municipal Ownership - Project Built it Back", textr, topLegend+160)
-
-  text("Dep. of Environmental Protection", textr, topLegend+230)
-
-  text("Municipal Ownership - other deparments", textr, topLegend+300)
 
   textStyle(ITALIC)
-
-  text("Occupied", textr, topLegend+40)
-  text("Vacant", textr, topLegend+60)
-
-  text("Occupied", textr, topLegend+110)
-  text("Vacant", textr, topLegend+130)
-
-  text("Occupied", textr, topLegend+180)
-  text("Vacant", textr, topLegend+200)
-
-  text("Occupied", textr, topLegend+250)
-  text("Vacant", textr, topLegend+270)
-
-  text("Occupied", textr, topLegend+320)
-  text("Vacant", textr, topLegend+340)
-
+  fill(197, 42, 95, 60);
+  text("Housing Trust Fund Co.", boxp-39-18, topLegend+38+(50*1)+3+16-9)
+  text("Project Built It Back", boxp-39-18, topLegend+38+(50*2)+3+16-9)
+  text("Dep. Environmental Protection", boxp-39-18, topLegend+38+(50*3)+3+16-9)
+  text("Other departments", boxp-39-18, topLegend+38+(50*4)+3+16-9)
   textStyle(NORMAL)
   textAlign(RIGHT, CENTER)
 
 
-  var boxp = 310
-  var bs = 18
+  fill(0,0,30,10)
+  rect(40,topLegend,320,box_legend)
 
-  fill(223,28,35)
-  rect(boxp,topLegend+37,bs,bs)
-  fill(223,28,35,10)
-  rect(boxp,topLegend+57,bs,bs)
 
-  fill(138,30,44)
-  rect(boxp,topLegend+107,bs,bs)
-  fill(138,30,44,10)
-  rect(boxp,topLegend+127,bs,bs)
 
-  fill(11,37,61)
-  rect(boxp,topLegend+177,bs,bs)
-  fill(11,37,61,10)
-  rect(boxp,topLegend+197,bs,bs)
 
-  fill(25,39,76)
-  rect(boxp,topLegend+247,bs,bs)
-  fill(25,39,76,10)
-  rect(boxp,topLegend+267,bs,bs)
 
-  fill(33,24,66)
-  rect(boxp,topLegend+317,bs,bs)
-  fill(33,24,66,10)
-  rect(boxp,topLegend+337,bs,bs)
+
+
+  // fill(223,28,35)
+  // rect(boxp,topLegend+37,bs,bs)
+  // fill(223,28,35,10)
+  // rect(boxp,topLegend+57,bs,bs)
+  //
+  // fill(138,30,44)
+  // rect(boxp,topLegend+107,bs,bs)
+  // fill(138,30,44,10)
+  // rect(boxp,topLegend+127,bs,bs)
+  //
+  // fill(11,37,61)
+  // rect(boxp,topLegend+177,bs,bs)
+  // fill(11,37,61,10)
+  // rect(boxp,topLegend+197,bs,bs)
+  //
+  // fill(25,39,76)
+  // rect(boxp,topLegend+247,bs,bs)
+  // fill(25,39,76,10)
+  // rect(boxp,topLegend+267,bs,bs)
+  //
+  // fill(33,24,66)
+  // rect(boxp,topLegend+317,bs,bs)
+  // fill(33,24,66,10)
+  // rect(boxp,topLegend+337,bs,bs)
 }
 
 function locate_map(){
@@ -768,7 +937,7 @@ function draw(){
   if (drawOwnershipFirst == 0) {
     drawOwnership(OwnershipTable);
   }
-  
+
   ExecutiveSummary();
 
   narrative();
@@ -778,9 +947,22 @@ function draw(){
   // draw year statistics
   drawYear();
 
-  // write sortby panel text 
+  // write sortby panel text
   sortby();
 
-  
-  
+  // stroke(50,50,50)
+  // line(150,0,150,5000)
+
+  // for (u=0; u<7;u++){
+  //   stroke(50,50,50)
+  //   line(0,u*500,1200,u*500)
+  // }
+  //
+  // noFill()
+  // rect(60,1555, 150, 25)
+  // rect(60,1815, 225, 25)
+  // rect(60,2290, 150, 25)
+  // rect(60,2505, 160, 25)
+  // noStroke()
+
 }
