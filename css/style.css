@@ -50,3 +50,30 @@ div#mainpage{
     margin-left: auto;
     margin-right: auto;
 }
+
+#imgrz {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    left: 34.456%;
+
+}
+
+div#legend{
+    overflow: hidden;
+    background: #333;
+}
+
+.mainpage{
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.sticky + .mainpage{
+    padding-top: 60px;
+}
