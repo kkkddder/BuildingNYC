@@ -52,10 +52,7 @@ div#mainpage{
 }
 
 #imgrz {
-    width: 40%;
     height: auto;
-    position: absolute;
-    left: 34.456%;
 
 }
 
@@ -71,7 +68,8 @@ div#legend{
 .sticky {
     position: fixed;
     top: 0;
-    width: 100%
+    width: 100%;
+    right: 0.001%;
 }
 
 .sticky + .mainpage{
