@@ -688,7 +688,9 @@ function drawOwnership() {
 }
 
 function ExecutiveSummary(){
-    var exec = "Hurricane Sandy struck the East Coast in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggered a record storm surge in New York harbor that covered nearly a fifth of the city\'s land and flooded road and tunnels. More than one hundred people died, most drowned in homes and cars. Millions were left in darkness. In New York City alone, 150,000 homes were damaged. Waterfront homes Staten Island were transformed from beachside oases to watery tombs."
+    // var exec = "Hurricane Sandy struck the East Coast in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggered a record storm surge in New York harbor that covered nearly a fifth of the city\'s land and flooded road and tunnels. More than one hundred people died, most drowned in homes and cars. Millions were left in darkness. In New York City alone, 150,000 homes were damaged. Waterfront homes Staten Island were transformed from beachside oases to watery tombs."
+
+    var exec =  "Hurricane Sandy struck the East Coast in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggered a record storm surge that covered nearly a fifth of the city’s land and flooded road and tunnels. More than one hundred people died. Millions were left in darkness. In New York City alone, 150,000 homes were damaged. Our site focuses on the particularly hard-hit Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives."
 
     // Executive summary
    fill(0,0,30,10)
@@ -704,7 +706,7 @@ function ExecutiveSummary(){
 
 function narrative(){
 
-  var intro1 = "Our site focuses on the particularly hard-hit Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. Low lying, Oakwood has been notoriously plagued with extensive street and home flooding during heavy rains, in addition to surge flooding. It was built on wetlands, swampy land that normally collects water and mitigates floods.  Many of the homes were small, crowded-together bungalows built as summer beach getaways. The developers did not create appropriate drainage infrastructure. And in the 1950s, the bungalows began to be used as year-round residences, which further increased vulnerability to flooding."
+  var intro1 = "Low lying, Oakwood has been notoriously plagued with extensive street and home flooding during heavy rains, in addition to surge flooding. It was built on wetlands, swampy land that normally collects water and mitigates floods.  Many of the homes were small, crowded-together bungalows built as summer beach getaways. The developers did not create appropriate drainage infrastructure. And in the 1950s, the bungalows began to be used as year-round residences, which further increased vulnerability to flooding."
 
   var intro2 ="Most of the residents -- many of them police and fire fighters-- have multi-generational roots in the area. They complained and lobbied for levees to be built, but despite city promises and plans, those levees never came to fruition. There is a reason that Staten Island is sometimes called the forgotten borough. Climate change has only made matters worse, bringing stronger storms and rising sea levels -- a 1.5-foot (0.5 m) rise since 1821 in Staten Island. By 1990, the situation had reached crisis proportions. Staten Island was in an uproar over flooding in newly developed neighborhoods, but the city government considered the cost of implementing traditional storm sewers too high."
 
@@ -720,11 +722,11 @@ function narrative(){
 
   var conclusion2 = "The result is a so-called jack-o-lantern or pockmarked effect, where vacant lots and isolated homes randomly dotting the coastal landscape, creating planning challenges for the city. The city is still required to extend services- electiricty, garbage collection, etc., to these homes resulting in costly, inefficient provision. These homes call into question the efficacy of buy out programs and highlight the messiness of post disaster recovery, even years later."
 
-  var conclusion3 = "The predominant theme in Oakwood, however, is transformation. No neighborhood has changed as dramatically as this long-suffering, waterlogged town. And the deer, turkey and opossum couldnt be happier."
+  var conclusion3 = "The predominant theme in Oakwood, however, is transformation. No neighborhood has changed as dramatically as this long-suffering, waterlogged town. It has been restored to a wetlands haven that will serve its natural function of drainage and flood mitigation so that future storms won’t bring the kind of devastation that Sandy wrought. And the deer, turkey and opossum couldnt be happier."
 
   var squish = "The columns at right order the data in three different ways to make buyouts and ownership patterns after Sandy, represented by the red line, more visible. The first column orders the lots by distance from the ocean, with the closest ones at the top and further ones towards the bottom. The chart shows that generally there were more Governor’s Office buy outs after Sandy for lots closer to the ocean. The middle column orders the lots by size, from largest at the top to smaller towards the bottom. A key takeaway there is that smaller lots typically participated in more buyouts. And the third column, at the far right, orders lots by assessed value, from greatest value at the top, to least at the bottom. Here one trend is that demolition is more likely to have occurred for less expensive homes than more expensive ones that were bought out by the state after Sandy."
 
-  var linec = "The line chart at right is a visual representation of descriptive ownership information for Oakwood Beach. The vertical axis represents number of lots, and the horizontal axis is the year. The number of vacant lots (light blue) rose in the immediate aftermath of Sandy, as homes were devastated by the record surge. The steeply rising green line reveals that a great number of residents embraced the $200 million Governor’s Office buyout program designed to help Sandy victims. The Staten Island Blue Belt program (orange) had already been initiated to mitigate flooding by the time Sandy struck, so the hurricane doesnt cause a big change there. And finally, the Buy it Back program is indicated by the very low red dot: this program was completely dwarfed by the Governors Office buyout program. "
+  var linec = "The line chart at right is a visual representation of descriptive ownership information for Oakwood Beach. The vertical axis represents number of lots, and the horizontal axis is the year. The number of vacant lots (light blue) rose in the immediate aftermath of Sandy, as homes were devastated by the record surge. The steeply rising green line reveals that a great number of residents embraced the $200 million Governors Office buyout program designed to help Sandy victims. The Staten Island Blue Belt program (orange) had already been initiated to mitigate flooding by the time Sandy struck, so the hurricane doesnt cause a big change there. And finally, the Buy it Back program is indicated by the very low red dot: this program was completely dwarfed by the Governors Office buyout program. "
 
 
   var topNarr = topMar+box_execSum+box_legend+box_map+(outbox_space*3)
@@ -738,7 +740,7 @@ function narrative(){
   textAlign(TOP,LEFT)
   fill(197, 42, 95)
   textSize(14)
-  text("The story of Oakwood Beach", 40+inbox_lr, topNarr+inbox_space)
+  text("The Story of Oakwood Beach", 40+inbox_lr, topNarr+inbox_space)
   textSize(12)
 
   tint(100,50)
@@ -845,7 +847,7 @@ function narrative(){
 
   fill(197, 42, 95)
   textAlign(TOP,LEFT)
-  text(linec, 40+inbox_lr, endNarr+50+paragraph+(inbox_space*2)+15+675+outbox_space+550, 320-(inbox_space*2), 250)
+  text(linec, 40+inbox_lr, endNarr+50+paragraph+(inbox_space*2)+15+675+outbox_space+550, 320-(inbox_space*2), 400)
   fill(197, 42, 95, 90)
 
 
