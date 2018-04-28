@@ -690,8 +690,7 @@ function drawOwnership() {
 function ExecutiveSummary(){
     // var exec = "Hurricane Sandy struck the East Coast in October 2012 with devastating impact. Sandy obliterated parts of the Jersey shore and triggered a record storm surge in New York harbor that covered nearly a fifth of the city\'s land and flooded road and tunnels. More than one hundred people died, most drowned in homes and cars. Millions were left in darkness. In New York City alone, 150,000 homes were damaged. Waterfront homes Staten Island were transformed from beachside oases to watery tombs."
 
-    var exec = "Hurricane Sandy struck the East Coast in October 2012, triggering a record storm surge that covered nearly a fifth of the city's land. In NYC alone, 150,000 homes were damaged. Our focus is the particularly hard-hit Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. A state-run voluntary buy-out program demolished homes and returned the land to wetlands. We examine what happened to 831 lots in the severely flooded area. Despite demolition delays and some reluctant owners, overall Oakwood is an unusual, sustainable post-Sandy success story." 
-
+    var exec = "Hurricane Sandy struck the East Coast in October 2012, triggering a record storm surge that covered nearly a fifth of the city's land. In NYC alone, 150,000 homes were damaged. Our focus is the particularly hard-hit Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. We examine what happened to 830 lots in severely flooded areas. A state-run voluntary buy-out program demolished homes and transformed much land to wetlands. Despite demolition delays and some reluctant owners, overall Oakwood is an unusual, sustainable post-Sandy success story."
     // Executive summary
    fill(0,0,30,10)
    rect(40,topMar,320,box_execSum)
