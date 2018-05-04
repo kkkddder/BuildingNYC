@@ -1,8 +1,13 @@
 # BuildingNYC
-Hurricane Sandy devastated the Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. What recovery plans were available to the town? Did it have a history of flooding? Who lived there? Has the town recovered, or been transformed in some fundamental way? Which lots were most affected? And what differences were there in the impact on different lots by factors such as location and assessed value?  Our project delves into these questions as it explores the story of Oakwood, a neighborhood plagued with flooding and planning problems for decades. For the survivors of Sandy, it is a success story where the state finally stepped in with a buy out and wetlands reseeding plan that the majority of residents were thrilled to receive, though it left some steadfast owners isolated in a transformed landscape. Our website reveals when and which homes were demolished, and offers many interactive features that reveal hidden patterns in Oakwood's profound transfomation.  
+Hurricane Sandy devastated the Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. What recovery plans were available to the town? Did it have a history of flooding? Who lived there? Has the town recovered, or been transformed in some fundamental way? Which lots were most affected? And what differences were there in the impact on different lots by factors such as location and assessed value?  Our project delves into these questions as it explores the story of Oakwood, a neighborhood plagued with flooding and planning problems for decades. For the survivors of Sandy, it is a success story where the state finally stepped in with a buy out and wetlands reseeding plan that the majority of residents were thrilled to receive, though it left some steadfast owners isolated in a transformed landscape. Our website reveals when and which homes were demolished, and offers many interactive features that reveal hidden patterns in Oakwood's profound transfomation. Our site is called "Razing NYC."
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Top.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Top.png height="700" align="center">
 
 
-PROCESS We first started by broadly considering the effects of Hurricane Sandy in NYC. We found a report about the resilience of city buildings to Sandy and future hurricanes, NYC_SIRR_Buildings.pdf. The report includes an analysis of the buildings that received red tags after Sandy, and how most of these were two floors or less and had combustible frames (made of wood rather than steel). The report also discussed the risk to areas of NYC from future surges, potentially exacerbated by climate change. We realized that PLUTO was a good source of data if we were going to explore this topic, or a related one, because it contains ownership info, addresses, building class, number of floors, assessed value, year the building was built and years it was altered. Later we noticed that PLUTO also included a category called Special Coastal Risk, and a Flood Insurance Indicator, which we thought might be useful. 
+PROCESS 
+We first started by broadly considering the effects of Hurricane Sandy in NYC. We found a report about the resilience of city buildings to Sandy and future hurricanes, NYC_SIRR_Buildings.pdf. The report includes an analysis of the buildings that received red tags after Sandy, and how most of these were two floors or less and had combustible frames (made of wood rather than steel). The report also discussed the risk to areas of NYC from future surges, potentially exacerbated by climate change. We realized that PLUTO was a good source of data if we were going to explore this topic, or a related one, because it contains ownership info, addresses, building class, number of floors, assessed value, year the building was built and years it was altered. Later we noticed that PLUTO also included a category called Special Coastal Risk, and a Flood Insurance Indicator, which we thought might be useful. 
 
 The group agreed this was a good direction to explore. We also realized we could integrate live images of the buildings on the lots at addresses listed in PLUTO, so that seemed very promising in terms of visualization potential.  
 
@@ -13,16 +18,42 @@ Land Use
 NYC open data - Damage By Sandy By Land Use
 https://data.cityofnewyork.us/Housing-Development/Damage-By-Sandy-By-Land-Use/tgvi-w9ww/data
 
-The next step was to find PLUTO data from 2009 to 2017. Originally we were looking at Staten Island and Queens, and we identified severely flood areas in those two boroughts because we knew they were hit with a lot of damage. We did initial data exploration on the attributes discussed above, generating descriptive statistics and charts that compared the years 2012 vs 2017, and severely flooded areas vs all of NYC, for Assessed Total Value, Built Year per Lot, Land use Per lot, etc for 10,000 lots. We also pulled out owner information for Queens and Staten Island.
+The next step was to find PLUTO data from 2009 to 2017. Originally we were looking at Staten Island and Queens, and we identified severely flood areas in those two boroughts because we knew they were hit with a lot of damage. We did initial data exploration and charts that compared the years 2012 vs 2017, and severely flooded areas vs all of NYC, for Assessed Total Value, Built Year per Lot, Land use Per lot, etc for 10,000 lots. 
 
-PNGS HERE 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandUse.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandUse.png height="700" align="center">
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/YearBuilt.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/YearBuilt.png height="700" align="center">
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandValue.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandValue.png height="700" align="center">
 
 
-We also made maps from FEMA damage assessments after Hurricane Sandy, with red outlines to indicate the blockgroups where the most severe damage occurred. The data was aggregated to the census block group level. The maps showed percent of buildings that suffered damaged from 4 plus feet of water on the first floor, percent of building damaged by the hurricane but not by flooding, and percent of buildings that suffered damage where the owners had no insurance.
+We also pulled out owner information for Queens and Staten Island. And we made maps from FEMA damage assessments after Hurricane Sandy, with red outlines to indicate the blockgroups where the most severe damage occurred. The data was aggregated to the census block group level. The maps showed percent of buildings that suffered damaged from 4 plus feet of water on the first floor, percent of building damaged by the hurricane but not by flooding, and percent of buildings that suffered damage where the owners had no insurance.
 
-We also made charts to look at population and racial characteristics, as well as the relation between year built and number of floors for relevant Staten Island and Queens areas. 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png)
 
-The data exploration can be found at https://kkkddder.github.io/BuildingNYC/Ass1.html
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png height="700" align="center">
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png height="700" align="center">
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png height="700" align="center">
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png height="700" align="center">
+
+
+
+We also made charts to look at population and racial characteristics, as well as the relation between year built and number of floors for relevant Staten Island and Queens areas. The complete data exploration can be found at https://kkkddder.github.io/BuildingNYC/Ass1.html
 
 Further research narrowed down the geographical area of interest. We learned that there were two main programs that served the victims of Superstorm Sandy. One was city run and called Build it Back, and was focused on rebuilding and sometimes elevating damaged houses through contractors ususally managed by the city.  This federally funded program had some successes but was also plagued by problems. Immigrants in the affected areas did not know about the program at first, there were not enough resources devoted to the program, and contractors had a hard time making homes storm-proof within the alloted budget, among other things. Several years later, there were still issues. When DeBlasio took over as mayor he allocated more resources to the program, but even with that, only 87% of the eligible homes have been rebuilt. People apparently dropped out of the program after years of frustration, so it is not clear if this number is indicative of the actual completion rate. 
 
@@ -147,7 +178,7 @@ We made a clickable program that highlights and sorts lots by different properti
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png)
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png height="400">
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png height="700" align=center>
               
 
 We wrote text explaining the key takeaways from each of the three versions. 
