@@ -3,8 +3,6 @@ Hurricane Sandy devastated the Staten Island neighborhood of Oakwood Beach, wher
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Top.png)
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Top.png height="700" align="center">
-
 
 PROCESS 
 We first started by broadly considering the effects of Hurricane Sandy in NYC. We found a report about the resilience of city buildings to Sandy and future hurricanes, NYC_SIRR_Buildings.pdf. The report includes an analysis of the buildings that received red tags after Sandy, and how most of these were two floors or less and had combustible frames (made of wood rather than steel). The report also discussed the risk to areas of NYC from future surges, potentially exacerbated by climate change. We realized that PLUTO was a good source of data if we were going to explore this topic, or a related one, because it contains ownership info, addresses, building class, number of floors, assessed value, year the building was built and years it was altered. Later we noticed that PLUTO also included a category called Special Coastal Risk, and a Flood Insurance Indicator, which we thought might be useful. 
@@ -22,34 +20,20 @@ The next step was to find PLUTO data from 2009 to 2017. Originally we were looki
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandUse.png)
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandUse.png height="700" align="center">
-
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/YearBuilt.png)
-
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/YearBuilt.png height="700" align="center">
-
-![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandValue.png)
 
 <img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandValue.png height="700" align="center">
 
 
 We also pulled out owner information for Queens and Staten Island. And we made maps from FEMA damage assessments after Hurricane Sandy, with red outlines to indicate the blockgroups where the most severe damage occurred. The data was aggregated to the census block group level. The maps showed percent of buildings that suffered damaged from 4 plus feet of water on the first floor, percent of building damaged by the hurricane but not by flooding, and percent of buildings that suffered damage where the owners had no insurance.
 
-![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png)
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png height="500" align="center">
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png height="700" align="center">
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png height="500" align="center">
 
-![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png)
-
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png height="700" align="center">
-
-![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png)
-
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png height="700" align="center">
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png height="500" align="center">
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png)
-
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png height="700" align="center">
 
 
 We also made charts to look at population and racial characteristics, as well as the relation between year built and number of floors for relevant Staten Island and Queens areas. The complete data exploration can be found at https://kkkddder.github.io/BuildingNYC/Ass1.html
