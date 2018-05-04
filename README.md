@@ -1,5 +1,5 @@
 # BuildingNYC
-Hurricane Sandy devastated the Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. What recovery plans were available to the town? Did it have a history of flooding? Who lived there? Has the town recovered, or been transformed in some fundamental way? Which lots were most affected? And what differences were there in the impact on different lots by factors such as location and assessed value?  Our project delves into these questions as it explores the story of Oakwood, a neighborhood plagued with flooding and planning problems for decades. For the survivors of Sandy, it is a success story where the state finally stepped in with a buy out and wetlands reseeding plan that the majority of residents were thrilled to receive, though it left some steadfast owners isolated in a transformed landscape. Our website reveals when and which homes were demolished, and offers many interactive features that reveal hidden patterns in Oakwood's profound transfomation. Our site is called "Razing NYC."
+Hurricane Sandy devastated the Staten Island neighborhood of Oakwood Beach, where 43 people lost their lives. What recovery plans were available to the town? Did it have a history of flooding? Who lived there? Has the town recovered, or been transformed in some fundamental way? Which lots were most affected? And what differences were there in the impact on different lots by factors such as location and assessed value? Our project delves into these questions as it explores the story of Oakwood, a neighborhood plagued with flooding and planning problems for decades. For the survivors of Sandy, it is a success story where the state finally stepped in with a buy out and wetlands reseeding plan that the majority of residents were thrilled to receive, though it left some steadfast owners isolated in a transformed landscape. Our website reveals when and which homes were demolished, and offers many interactive features that reveal hidden patterns in Oakwood's profound transfomation. Our site is called "Razing NYC", which we introduce at the top with a fish eye photo of Oakwood:
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/TitleShot.png)
 
@@ -10,13 +10,6 @@ We first started by broadly considering the effects of Hurricane Sandy in NYC. W
 
 The group agreed this was a good direction to explore. We also realized we could integrate live images of the buildings on the lots at addresses listed in PLUTO, so that seemed very promising in terms of visualization potential.  
 
-NYC open data - Damage By Sandy By Age
-https://data.cityofnewyork.us/Housing-Development/Damage-By-Sandy-By-Age-Of-Building/mgjt-zuui
-
-Land Use
-NYC open data - Damage By Sandy By Land Use
-https://data.cityofnewyork.us/Housing-Development/Damage-By-Sandy-By-Land-Use/tgvi-w9ww/data
-
 The next step was to find PLUTO data from 2009 to 2017. Originally we were looking at Staten Island and Queens, and we identified severely flood areas in those two boroughts because we knew they were hit with a lot of damage. We did initial data exploration and charts that compared the years 2012 vs 2017, and severely flooded areas vs all of NYC, for Assessed Total Value, Built Year per Lot, Land use Per lot, etc for 10,000 lots. 
 
 <img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LandValue.png height="700" align="center">
@@ -26,20 +19,30 @@ The next step was to find PLUTO data from 2009 to 2017. Originally we were looki
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/YearBuilt.png)
 
 
-We also pulled out owner information for Queens and Staten Island. And we made maps from FEMA damage assessments after Hurricane Sandy, with red outlines to indicate the blockgroups where the most severe damage occurred. The data was aggregated to the census block group level. The maps showed percent of buildings that suffered damaged from 4 plus feet of water on the first floor, percent of building damaged by the hurricane but not by flooding, and percent of buildings that suffered damage where the owners had no insurance.
+We also pulled out owner information for Queens and Staten Island. 
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png height="500" align="center">
+We also made maps from FEMA damage assessments after Hurricane Sandy, with red outlines to indicate the blockgroups where the most severe damage occurred. Data came from:
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png height="500" align="center">
+NYC open data - Damage By Sandy By Age
+https://data.cityofnewyork.us/Housing-Development/Damage-By-Sandy-By-Age-Of-Building/mgjt-zuui
 
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png height="500" align="center">
+Land Use
+NYC open data - Damage By Sandy By Land Use
+https://data.cityofnewyork.us/Housing-Development/Damage-By-Sandy-By-Land-Use/tgvi-w9ww/data
+
+The data was aggregated to the census block group level. The exploratory maps showed percent of buildings that suffered damaged from 4 plus feet of water on the first floor, percent of building damaged by the hurricane but not by flooding, and percent of buildings that suffered damage where the owners had no insurance. 
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore1.png)
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore2.png)
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore3.png)
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png)
 
-
 We also made charts to look at population and racial characteristics, as well as the relation between year built and number of floors for relevant Staten Island and Queens areas. The complete data exploration can be found at https://kkkddder.github.io/BuildingNYC/Ass1.html
 
-Further research narrowed down the geographical area of interest. We learned that there were two main programs that served the victims of Superstorm Sandy. One was city run and called Build it Back, and was focused on rebuilding and sometimes elevating damaged houses through contractors ususally managed by the city.  This federally funded program had some successes but was also plagued by problems. Immigrants in the affected areas did not know about the program at first, there were not enough resources devoted to the program, and contractors had a hard time making homes storm-proof within the alloted budget, among other things. Several years later, there were still issues. When DeBlasio took over as mayor he allocated more resources to the program, but even with that, only 87% of the eligible homes have been rebuilt. People apparently dropped out of the program after years of frustration, so it is not clear if this number is indicative of the actual completion rate. 
+Further research narrowed down the geographical area of interest. We learned that there were two main programs that served the victims of Superstorm Sandy. One was city run and called Build it Back, and was focused on rebuilding and sometimes elevating damaged houses through contractors ususally managed by the city. This federally funded program had some successes but was also plagued by problems. Immigrants in the affected areas did not know about the program at first, there were not enough resources devoted to the program, and contractors had a hard time making homes storm-proof within the alloted budget, among other things. Several years later, there were still issues. When DeBlasio took over as mayor he allocated more resources to the program, but even with that, only 87% of the eligible homes have been rebuilt. People apparently dropped out of the program after years of frustration, so it is not clear if this number is indicative of the actual completion rate. 
 
 A second main program was run by the state government, initiated by Governor Andrew Cuomo. This program invested $200 million to buy back the land / damaged homes at pre-Sandy rates in three devastated areas of Staten Island: Oakwood Beach, Ocean Breeze, and Graham Beach. The plan was to demolish those battered homes and rewild the land (seeding it), returning it to wetlands. (This strategy is called managed retreat.) The upside here was two-fold: people could quickly move on with their lives, and the program eliminated the risk of future damage from storms in this waterfront area., because the land is restored to its natural floodplain function. (Other areas in NYC such as Williamsburg, Greenpoint, and Long Island City are rebuilding on the waterfront and tens of thousands of new residents are moving in, a risky proposition.) A large percentage of people in these SI waterfront areas decided to take the buyout offers. 
 
@@ -51,6 +54,10 @@ http://www.nyc.gov/html/recovery/html/home/home.shtml
 
 NYCHA Sandy Recovery & Progress
 http://www1.nyc.gov/site/nycha/about/recovery-resiliency.page
+
+Sandy Progam Efficacy and News 
+
+https://www.economist.com/blogs/democracyinamerica/2014/10/hurricane-sandy
 
 https://www.theguardian.com/us-news/2017/oct/27/hurricane-sandy-five-years-later-climate-change
 
@@ -71,7 +78,7 @@ The next goal was to develop a sketch for the website and the main data visualiz
 
 All together, our study site at this point included 1284 lots in 2009 (before Sandy) and 1276 in 2017 (the most recent year of data available): we extracted this data from PLUTO. 
 
-We were able to find out which owner names referred to both the city and state recovery programs:
+We identified which owner names referred to both the city and state recovery programs:
 
 NY State Government
 OwnerName = 'HOUSING TRUST FUND COR' OR 'HOUSING TRUST FUND CO' OR 'HOUSING TRUST FUN COR' OR 'HOUSING TRSUT FUND CO' OR  'HOSUING TRUST FUND CO' OR 'HOSING TRUST FUND COR'
@@ -106,11 +113,17 @@ City of New York
 	41						
 	35			
 
-This was preliminary: we planned to later include private ownership and vacant lots as well. And in the final deliverable we planned to trace back the homes in our study site back to 2009, a few years before Sandy hits (in Oct 2012). 			
+We planned to later include private ownership and vacant lots as well. And in the final deliverable we planned to trace back the homes in our study site back to 2009, a few years before Sandy hits (in Oct 2012). This would take into account the role of a flood related  Blue Belt program in Staten Island, which started earlier, and which later played a role in the response to Sandy and the later ownership data. 			
 							
-We decided to make a huge interactive chart called Razing NYC of all the lots in our study site over time, from 2009 to 2017. The initial website sketch can be seen at https://kkkddder.github.io/BuildingNYC/Ass2.html  The idea is to show how the lots change ownership over time, particularly after Sandy, and when and if the homes on the lots are demolished. 
+We decided to make a huge interactive chart called Razing NYC of all the lots in our study site over time, from 2009 to 2017. The idea is to show how the lots change ownership over time, particularly after Sandy, and when and if the homes on the lots are demolished. The colors for each type of ownership would fade out when the home was demolished. Here is our initial sketch. 
 
-They are color coded by type of owner: 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Initial1.png)
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Initial2.png)
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Initial3.png)
+
+Lots are color coded by type of owner: 
 
 Private Owners = 0	
 Housing Trust Co = 1	  (state)
@@ -126,12 +139,16 @@ A vertical red line at 2012 in the chart will indicate when Sandy hit. When a lo
 
 The interactive element: when you hover over one of the rectangles / bands representing one of the lots, it will pull up a satellite photo of what the building at that lot looks like now. The photo will appear in a box to the right of the chart. 
 
-The chart should also reveal the homes where people have refused the buyout program. The status and number of these homes is a sub-topic that we will explore further as we do more data analysis.  Additional research led us to the concept of the jack-a-lantern landscape, areas pockmarked with vacant lots and holdouts. 
+The chart should also reveal the homes where people have refused the buyout program. The status and number of these homes is a sub-topic that we will explore further as we do more data analysis. Additional research led us to the concept of the jack-a-lantern landscape, areas pockmarked with vacant lots and holdouts. 
 
 Other planned elements: a graphic, perhaps a line chart, that indicates how ownership changed over time in the aggregate. So there will be one line for each of the major owners, and we will see in which years they bought or increased their buying of homes. 
 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Initial4.png)
+
 There will also be an introduction section that will set the stage by describing the destruction caused by Sandy, explain what happened to Oakwood Beach, and explain the different city and state programs, etc. The intro and other explanatory elements will offer a narrative frame for the visualizations. There will also be relevant photos from Oakwood Beach, such as a home destroyed by Sandy, a home being demolished by the state, ducks and geese who have moved back in, and jack a lantern homes. 
  
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/InitialResearch.png)
+
 
 As we worked on creating a working prototype of our website, and refining our ideas and the layout in various ways, we decided to zero in on the lots in Oakland Beach that were closest to the shore and suffered the most damage from the storm. We started with 843 lots.
 But some of these lots had missing information (including ownership and assessed values), so we excluded those lots as part of the data cleaning process (in Excel). In the end we had a total of 831 lots for our study site.
@@ -153,6 +170,8 @@ Although we could have just shown homes after Hurricane Sandy hit, by going back
 
 In the first draft of the prototype, we changed some of the colors and put in a pop up window for those who wanted to dig deeper into the Oakwood Beach story. That window included photographs for each stage in the narrative, though later we decided to integrate the narrative more directly into the website in a column running down the left side of the interaction. 
 
+PHOTOTK ![Add image]
+
 The placement and color scheme were prelimnary: we were mainly focused on getting all the info and making the prototype work in an interactive and smooth manner. One question was whether to make the satellite image fixed or relative; if it was fixed we could use the third column real estate, but in the end we preferred the other approach.
 
 In the last week, we redesigned the layout, rewrote the narrative to work more closely with the visualization categories (adding a SI Blue Belt paragraph, for example), added a title image and end image, changed the photographs to black and white, etc. 
@@ -161,8 +180,6 @@ We made a clickable program that highlights and sorts lots by different properti
 
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png)
-
-<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png height="700" align=center>
               
 
 We wrote text explaining the key takeaways from each of the three versions. 
@@ -176,6 +193,8 @@ PNG
 We made a year bar at the top that stays at the top of the computer screen when users scroll down.
 
 PNG 
+
+
 
 
 FINAL REFLECTIONS
