@@ -130,12 +130,11 @@ We used p5.js to create the large visualization that allows people to hover over
 
 We refined our legend scheme so that it includes: Private Property, State Owned (Housing Trust), Build it Back, SI Blue Belt, and Other Municipal Ownership. In the p5 sketch, we first checked for ownership by each of these programs (after first recoding the data in an Excel file).
 
-Although we could have just shown homes after Hurricane Sandy hit, by going back a few years, we were able to show another approach to flooding control in Oakwood, the Blue Belt, which was still in play years later, and which played a role in securing the state buy out program for Oakwood. 
-
-
 Then we checked the Building Area data column in PLUTO. If it was zero, that indicates that the lot is vacant. If a building area went to 0 in 2013, we concluded that it was destroyed by Sandy (since the hurricane struck in Oct 2012). If the building area went to 0 in succeeding years, we considered those demolitions. 
 
 The chart aims to make dramatically visible trends in the timing and effect of the state buy out program, which involved first buying the land and buildings, and then demolishing the homes to make way for wetlands. As will be visible in our graphic, houses bought by the state sometimes stood empty for years until the demolition occured. 
+
+Although we could have just shown homes after Hurricane Sandy hit, by going back a few years, we were able to show another approach to flooding control in Oakwood, the Blue Belt, which was still in play years later, and which played a role in securing the state buy out program for Oakwood. 
 
 In the first draft of the prototype, we changed some of the colors and put in a pop up window for those who wanted to dig deeper into the Oakwood Beach story. That window included photographs for each stage in the narrative, though later we decided to integrate the narrative more directly into the website in a column running down the left side of the interaction. 
 
@@ -171,7 +170,7 @@ In terms of design, we used the timing of Sandy, indicated by a red line that tr
 
 One of the key constraints for this project was that we were not supposed to use maps. Our main visualization was our way of making a spatially compelling dramatization of what happened to a geographic area without using a map. The satellite images also were a way of integrating spatial data. Were we allowed to use maps and if we had more time, we would have included little maps below each satellite photo of a lot to show where that lot is located. We might also, were there more time, have done some statistical analysis, in particular around demolition times for example.
 
-We enjoyed working with each other, and the interdisciplinary nature and skills of our team really enriched the project. 
+We all enjoyed working with each other, and the interdisciplinary nature and skills of our team really enriched the project. 
 
 
 
