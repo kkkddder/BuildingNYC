@@ -111,7 +111,7 @@ A vertical red line at 2012 in the chart will indicate when Sandy hit. When a lo
 
 The interactive element: when you hover over one of the rectangles / bands representing one of the lots, it will pull up a satellite photo of what the building at that lot looks like now. The photo will appear in a box to the right of the chart. 
 
-The chart should also reveal the homes where people have refused the buyout program. The status and number of these homes is a sub-topic that we will explore further as we do more data analysis.  
+The chart should also reveal the homes where people have refused the buyout program. The status and number of these homes is a sub-topic that we will explore further as we do more data analysis.  Additional research led us to the concept of the jack-a-lantern landscape, areas pockmarked with vacant lots and holdouts. 
 
 Other planned elements: a graphic, perhaps a line chart, that indicates how ownership changed over time in the aggregate. So there will be one line for each of the major owners, and we will see in which years they bought or increased their buying of homes. 
 
@@ -157,6 +157,7 @@ PNG
 We made a year bar at the top that stays at the top of the computer screen when users scroll down.
 
 PNG 
+
 
 FINAL REFLECTIONS
 
