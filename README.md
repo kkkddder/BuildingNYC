@@ -144,7 +144,8 @@ In the last week, we redesigned the layout, rewrote the narrative to work more c
 
 We made a clickable program that highlights and sorts lots by different properties: distance from the beach, total assessed value, and size of the lot. Originally we were going to offer buttons to re-sort the main visualization in these three ways. We later decided to do the resorting on three smaller versions of the main visualization. We put these smaller versions, ordered differently, next to each other in order to make patterns in buyouts and timing more visible.
 
-PNG 
+![Add Image](https://github.com/kkkddder/BuildingNYC/Images_ReadMe/ThreeImages.png)
+ 
 
 We wrote text explaining the key takeaways from each of the three versions. 
 
