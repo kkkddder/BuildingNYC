@@ -11,6 +11,7 @@ h1 {
 
 body {
 	background-color:#2b2b2b
+	/*background-color:#272727*/
 }
 
 h2 {
@@ -58,7 +59,7 @@ div#mainpage{
 
 div#legend{
     overflow: hidden;
-    background: #333;
+    background: #2b2b2b;
 }
 
 .mainpage{
