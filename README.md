@@ -146,6 +146,8 @@ We made a clickable program that highlights and sorts lots by different properti
 
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png)
+
+<img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/ThreeImages.png height="400">
               
 
 We wrote text explaining the key takeaways from each of the three versions. 
