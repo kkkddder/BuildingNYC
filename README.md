@@ -52,7 +52,6 @@ We also pulled out owner information for Queens and Staten Island. And we made m
 <img src=https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MapExplore4.png height="700" align="center">
 
 
-
 We also made charts to look at population and racial characteristics, as well as the relation between year built and number of floors for relevant Staten Island and Queens areas. The complete data exploration can be found at https://kkkddder.github.io/BuildingNYC/Ass1.html
 
 Further research narrowed down the geographical area of interest. We learned that there were two main programs that served the victims of Superstorm Sandy. One was city run and called Build it Back, and was focused on rebuilding and sometimes elevating damaged houses through contractors ususally managed by the city.  This federally funded program had some successes but was also plagued by problems. Immigrants in the affected areas did not know about the program at first, there were not enough resources devoted to the program, and contractors had a hard time making homes storm-proof within the alloted budget, among other things. Several years later, there were still issues. When DeBlasio took over as mayor he allocated more resources to the program, but even with that, only 87% of the eligible homes have been rebuilt. People apparently dropped out of the program after years of frustration, so it is not clear if this number is indicative of the actual completion rate. 
