@@ -241,6 +241,10 @@ function mouseMoved(){
           strokeWeight(1);
 
           rect(435, indexList[numHighlight-1]*(lineHeight+1) + topMar, 405, lineHeight);
+          stroke(360,100,100);
+          // colorMode(HSB, 360);
+          line(600, indexList[numHighlight-1]*(lineHeight+1) + topMar - 10, 600, indexList[numHighlight-1]*(lineHeight+1) + topMar + 10);
+          // noStroke();
         }
 
         strokeWeight(1);;
