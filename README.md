@@ -170,11 +170,7 @@ In the last week, we redesigned the layout, rewrote the narrative to work more c
 
 ![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MainViz.png)
 
-We finetuned the legend to make it clearer, with all the vacant colors next to their original colors when the lot was not vacant.
-
-![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Legend.png)
-
-We decided to make the year bar at the top stick when users scroll down.
+We finetuned the legend to make it clearer, with all the vacant colors next to their original colors when the lot was not vacant. And we decided to make the year bar at the top stick when users scroll down.
 
 To glean patterns and information from our visualization, we made a clickable program that highlights and sorts lots by different properties: distance from the beach, total assessed value, and size of the lot. Originally we were going to offer buttons to re-sort the main visualization in these three ways. We later decided to do the resorting on three smaller versions of the main visualization. We put these smaller versions, ordered differently, next to each other in order to make patterns in buyouts and timing more visible.
 
