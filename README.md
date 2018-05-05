@@ -176,6 +176,12 @@ The placement and color scheme were prelimnary: we were mainly focused on gettin
 
 In the last week, we redesigned the layout, rewrote the narrative to work more closely with the visualization categories (adding a SI Blue Belt paragraph, for example), added a title image and end image, changed the photographs to black and white, etc. 
 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/MainViz.png)
+
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Legend.png)
+
+We made the year bar at the top stick the top of the computer screen when users scroll down.
+
 We made a clickable program that highlights and sorts lots by different properties: distance from the beach, total assessed value, and size of the lot. Originally we were going to offer buttons to re-sort the main visualization in these three ways. We later decided to do the resorting on three smaller versions of the main visualization. We put these smaller versions, ordered differently, next to each other in order to make patterns in buyouts and timing more visible.
 
 
@@ -184,17 +190,11 @@ We made a clickable program that highlights and sorts lots by different properti
 
 We wrote text explaining the key takeaways from each of the three versions. 
 
-PNG 
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/Narrative.png)
 
 We also created a statistical panel that indicated ownership trends over time. After discussion, we turned this panel into a line chart which we thought would be more visually effective. Different colored lines indicate five different ownership options: governor's office; SI Blue Belt; Buy it Back; vacant. 
 
-PNG 
-
-We made a year bar at the top that stays at the top of the computer screen when users scroll down.
-
-PNG 
-
-
+![Add image](https://raw.githubusercontent.com/kkkddder/BuildingNYC/master/Images_ReadMe/LineChart.png)
 
 
 FINAL REFLECTIONS
